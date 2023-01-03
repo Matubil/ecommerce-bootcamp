@@ -1,0 +1,24 @@
+
+.main-nav{
+    background-color: $color-bg-primary;
+    color: $color-text-light;
+    height: 60px;
+    display: flex;
+    align-items: center;
+
+    .nav-links{
+        padding: 2rem;
+        .nav-item{
+            text-decoration: none;
+            color: $color-text-light;
+            &.active{
+                color: cornflowerblue;
+                font-weight: 500
+            }
+            &:hover{
+                font-size: 1.2rem;
+                color: darkred;
+            }
+        }
+    }
+}

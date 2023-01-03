@@ -1,23 +1,12 @@
-.main-nav{
-    background-color: salmon;
-    color: white;
-    height: 60px;
-    display: flex;
-    align-items: center;
+//muy importante el orden de los imports, ya que si pones uno encima del otro y depende las variables de un import de arriba no lo va a leer, ya que solamente lee variables de abajo para arriba, osea las de mas arriba no pueden depender de variables de import de abajo
 
-    .nav-links{
-        padding: 2rem;
-        .nav-item{
-            text-decoration: none;
-            color: white;
-            &.active{
-                color: cornflowerblue;
-                font-weight: 500
-            }
-            &:hover{
-                font-size: 1.2rem;
-                color: darkred;
-            }
-        }
-    }
-}
+@import "abstracts/variables";
+
+@import "components/card";
+
+@import "base/reset";
+@import "base/typography";
+
+@import "layout/header";
+
+@import "pages/home"
