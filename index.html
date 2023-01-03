@@ -10,15 +10,153 @@
 </head>
 <body>
     <header>
-        <nav class="main-nav">
-            <div class="nav-links">
-                <a href="" class="nav-item active">Link 1</a>
-                <a href="" class="nav-item">Link 2</a>
-                <a href="" class="nav-item">Link 3</a>
-                <a href="" class="nav-item">Link 4</a>
-                <a href="" class="nav-item">Link 5</a>
-            </div>
+        <nav class="navbar">
+            <a href="/index.html" class="navbar__nav-item">
+                <img class="navbar__logo" src="/assets/images/logo.png" alt="Logo del ecommerce" width="50">
+            </a>
+            <ul class="navbar__nav-links-container">
+                <li class="navbar__nav-item">
+                    <a href="/index.html" class="navbar__nav-link">Inicio</a>
+                </li>
+                <li class="navbar__nav-item">
+                    <a href="/pages/contact/contact.html" class="navbar__nav-link">Contacto</a>
+                </li>
+                <li class="navbar__nav-item">
+                    <a href="/pages/about-us/about-us.html" class="navbar__nav-link">Nosotros</a>
+                </li>
+                <li class="navbar__nav-item">
+                    <a href="/pages/register/register.html" class="navbar__nav-link">Registro</a>
+                </li>
+            </ul>
         </nav>
+        <div class="user-navbar">
+            <div class="user-navbar__cart-icon-container">
+                <!-- TODO: add font icon of a cart icon item -->
+                IC
+            </div>
+            <!-- TODO: add avatar of person or item-->
+        </div>
     </header>
+    <!--TODO: Implementar carousel en 2do modulo-->
+    <main>
+        <main>
+            <section class="section-cards">
+                <header class="section-cards__header">
+                    <div class="section-cards__title-container">
+                        <h1 class="section-cards__title">
+                            Lorem ipsum dolor sit amet.
+                        </h1>
+                        <p class="section-cards__subtitle">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores cumque, obcaecati quas
+                            laboriosam tenetur facilis.
+                        </p>
+                    </div>
+                    <div class="section-cards__products-search-container">
+                        <div class="product-search">
+                            <label for="" class="product-search__label">
+                                Buscar
+                            </label>
+                            <input type="text" class="product-search__input">
+                            <button class="product-search__btn">Buscar</button>
+                        </div>
+                        <div class="section-cards__products-count">
+                            Se encontraron X productos
+                        </div>
+                    </div>
+                </header>
+                <!-- dentro de las section podes volver a declarar header y mains -->
+                <div class="cards-container">
+                    <h1 class="cards-container__category">
+                        CATEGORIA: OFERTAS
+                    </h1>
+                    <!-- elementos especificos dentro de un section que tratan de un tema en aprticular == article definicion -->
+                    <article class="card">
+                        <div class="card__header">
+                            <img src="#" alt="Product Image" class="card__img">
+                        </div>
+                        <div class="card__body">
+                            <div class="card__title">
+                                PRODUCT NAME
+                            </div>
+                            <p class="card__description">
+                                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quas velit fuga deserunt fugit
+                                quia quo magni repudiandae, asperiores quos sapiente?
+                            </p>
+                            <div class="card__price">
+                                $ XXXXX
+                            </div>
+                        </div>
+                        <div class="card__footer">
+                            <div class="card__date">
+                                13/12/2022
+                            </div>
+                            <div class="card__btn-container">
+                                <a class="card__btn" href="#">
+                                    Detalle
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+                    
+                </div>
+            </section>
+        </main>
+    </main>       
+    <footer class="footer">
+        <div class="footer__column">
+            <ul class="footer__social-media-container">
+                <li class="footer__social-media-item">                   
+                    <a href="#" class="footer__social-media-link">                        
+                        <!-- Icono -->
+                        Facebook
+                    </a>
+                </li>
+                <li class="footer__social-media-item">
+                    <a href="#" class="footer__social-media-link">
+                        <!-- Icono -->
+                        Instagram
+                    </a>
+                </li>
+                <li class="footer__social-media-item">
+                    <a href="#" class="footer__social-media-link">
+                        <!-- Icono -->
+                        LinkedIn
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="footer__column">
+            <img src="/assets/images/logo.png" alt="Company Logo" class="footer__logo" width="50">
+            <h2 class="footer__company-name">
+                NOMBRE DE LA EMPRESA
+            </h2>
+            <p class="footer__copyright">
+                Todos los derechos reservados a Pepito
+            </p>
+        </div>
+        <div class="footer__column">
+            <ul class="footer__contact-container">
+                <!-- para cambiar varias palabras similares que tenemos de clase, le damos a ctrl+d -->
+                <li class="footer__contact-item">
+                    <a href="#" class="footer__contact-link">
+                        <!-- Icono -->
+                        Telefono
+                    </a>
+                </li>
+                <li class="footer__contact-item">
+                    <a href="#" class="footer__contact-link">
+                        <!-- Icono -->
+                        Localizacion
+                    </a>
+                </li>
+                <li class="footer__contact-item">
+                    <a href="#" class="footer__contact-link">
+                        <!-- Icono -->
+                        Email
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </footer>
 </body>
 </html>
