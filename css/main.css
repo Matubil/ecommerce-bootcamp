@@ -9,6 +9,7 @@
 
 a {
   text-decoration: none;
+  display: inline-block;
 }
 
 body {
@@ -36,4 +37,41 @@ body {
 .main-nav .nav-links .nav-item:hover {
   font-size: 1.2rem;
   color: darkred;
+}
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  background-color: #333;
+}
+.footer__column {
+  padding: 1rem 1.5rem;
+}
+.footer__contact-item {
+  list-style: none;
+}
+.footer__contact-link {
+  color: white;
+  padding: 0.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.footer__contact-icon {
+  font-size: 1.75rem;
+}
+.footer__contact-icon--facebook {
+  color: #38529a;
+}
+.footer__contact-icon--instagram {
+  color: #f14d59;
+}
+.footer__contact-icon--linkedin {
+  color: #0077b6;
+}
+
+@media screen and (min-width: 600px) {
+  .footer {
+    flex-direction: row;
+  }
 }/*# sourceMappingURL=main.css.map */
