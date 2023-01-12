@@ -1,0 +1,33 @@
+.section-cards{
+    &__header{
+        text-transform: uppercase;
+        font-size: 1.5rem;
+        text-align: center;
+    }
+    &__subtitle{
+        color: #444;
+        font-size: 1rem;
+    }
+    &__products-search-container{
+        padding: 1rem;
+        background-color: cornflowerblue;
+    }
+    .cards-container{
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px ,1 fr));     //auto fit quiere decir que repita a medida que pueda llenar que meta lo que pueda en 200 px o sino que ponga 1fr que ocupe todo eso y hasta un min de 200px
+    }
+}
+
+@media screen and (min-width: 600px) {
+    .cards-container{
+        grid-template-columns: repeat(auto-fit, minmax(200px ,1 fr)); //le digo que muestre 2 elementos cuando entre en modo tablet
+    }
+}
+
+@media screen and (min-width: 1000px) {
+    .section-cards{
+        &__header{
+            display: flex;
+        }
+    }
+}

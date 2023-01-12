@@ -12,8 +12,58 @@ a {
   display: inline-block;
 }
 
+html {
+  font-size: 12px;
+}
+
+@media screen and (min-width: 600px) {
+  html {
+    font-size: 16px;
+  }
+}
 body {
   font-family: "Inter", Arial, sans-serif;
+}
+
+.card {
+  margin: 1rem;
+  border: 1px solid red;
+}
+.card__header {
+  height: 140px;
+  background-color: orange;
+}
+.card___img {
+  height: 120px;
+}
+.card__body {
+  padding: 1rem;
+}
+.card__title {
+  font-weight: 500;
+  font-size: 1.5rem;
+  border-bottom: 2px solid orangered;
+}
+.card__description {
+  padding: 1.5rem 0 2rem;
+}
+.card__price {
+  font-weight: 500;
+  font-size: 1.25rem;
+  color: rgb(4, 98, 20);
+}
+.card__footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+}
+.card__date {
+  color: dodgerblue;
+}
+.card__btn {
+  padding: 1rem 1.5rem;
+  background-color: dodgerblue;
+  color: white;
 }
 
 .header {
@@ -119,6 +169,10 @@ body {
 .user-navbar__user-avatar {
   width: 40px;
 }
+.user-navbar__cart-icon-container {
+  color: orange;
+  font-size: 1.5rem;
+}
 
 @media screen and (min-width: 600px) {
   .navbar__menu-label, .navbar__menu-btn {
@@ -172,6 +226,35 @@ body {
 }
 .main {
   margin-top: 50px;
-  padding: 4rem 1.5rem;
+  padding: 1.5rem 0;
   background-color: aliceblue;
+}
+
+.section-cards__header {
+  text-transform: uppercase;
+  font-size: 1.5rem;
+  text-align: center;
+}
+.section-cards__subtitle {
+  color: #444;
+  font-size: 1rem;
+}
+.section-cards__products-search-container {
+  padding: 1rem;
+  background-color: cornflowerblue;
+}
+.section-cards .cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1 fr));
+}
+
+@media screen and (min-width: 600px) {
+  .cards-container {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1 fr));
+  }
+}
+@media screen and (min-width: 1000px) {
+  .section-cards__header {
+    display: flex;
+  }
 }

@@ -13,3 +13,13 @@ a{
     display: inline-block;
     // color: #fff;
 }
+
+html{
+    font-size: 12px;
+}
+
+@media screen and (min-width: 600px){
+    html{
+        font-size: 16px;
+    }
+}
