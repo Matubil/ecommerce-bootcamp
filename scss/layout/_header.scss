@@ -1,6 +1,7 @@
 .header{    
     position: fixed; //para que se quede fijo el header
     width: 100%; //se le da 100% ya que al decirle que este fijo ocupa solo lo que ocupa sus elementos
+    top: 0;
 }
 .navbar{
     height: 50px;
@@ -13,7 +14,7 @@
     }
     &__menu-label{
         color: $color-text-light;
-        margin-left: auto;
+        // margin-left: auto;
         height: 42px;
         background-color: orangered;   //fondo del menu hamburguesa
         width: 42px;
@@ -90,7 +91,7 @@
     }
 
     &__nav-item{
-        padding: .75rem 1rem;
+        padding: 1.25rem 1rem;
         // background-color: blue;
 
         &:not(:last-child){            
@@ -99,6 +100,19 @@
     }
     &__nav-link{
         color: $color-text-light;
+    }
+}
+
+.user-navbar{   //ya que es casi como un bloque no es necesario seguirlo poniendo dentro de otro bloque, entonces lo mas conveniente es declararlo afuera, ya que va a tener bastantes cosas dentro
+
+    margin-left: auto;
+    color: white;
+    display: flex;
+    gap: .5rem;
+    align-items: center;
+    padding: 0 1rem;
+    &__user-avatar{
+        width: 40px;
     }
 }
 
@@ -114,6 +128,13 @@
             width: auto;
             // background-color: transparent;
         }
+
+        // &:not(:last-child){         //declarar para eso no se vea la linea
+        //     border-bottom: 1px solid rgb(156, 156, 156);
+        // }
+    }
+    .user-navbar{
+        order: 3; //para ponerlo en la tercera posicion
     }
 }
 

@@ -19,6 +19,7 @@ body {
 .header {
   position: fixed;
   width: 100%;
+  top: 0;
 }
 
 .navbar {
@@ -33,7 +34,6 @@ body {
 }
 .navbar__menu-label {
   color: rgb(255, 255, 255);
-  margin-left: auto;
   height: 42px;
   background-color: orangered;
   width: 42px;
@@ -99,13 +99,25 @@ body {
   justify-content: center;
 }
 .navbar__nav-item {
-  padding: 0.75rem 1rem;
+  padding: 1.25rem 1rem;
 }
 .navbar__nav-item:not(:last-child) {
   border-bottom: 1px solid rgb(156, 156, 156);
 }
 .navbar__nav-link {
   color: rgb(255, 255, 255);
+}
+
+.user-navbar {
+  margin-left: auto;
+  color: white;
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  padding: 0 1rem;
+}
+.user-navbar__user-avatar {
+  width: 40px;
 }
 
 @media screen and (min-width: 600px) {
@@ -117,6 +129,9 @@ body {
     flex-direction: row;
     height: 100% !important;
     width: auto;
+  }
+  .user-navbar {
+    order: 3;
   }
 }
 .footer {
@@ -154,4 +169,9 @@ body {
   .footer {
     flex-direction: row;
   }
+}
+.main {
+  margin-top: 50px;
+  padding: 4rem 1.5rem;
+  background-color: aliceblue;
 }

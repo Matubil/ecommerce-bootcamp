@@ -1,24 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home - Ecommerce</title>
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+        integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="/css/main.css">
 </head>
+
 <body>
     <header class="header">
         <nav class="navbar">
-            <a href="/index.html" class="navbar__nav-item">
+            <a href="/index.html" class="navbar__nav-link">
                 <img class="navbar__logo" src="/assets/images/logo.png" alt="Logo del ecommerce">
             </a>
-
+            <div class="user-navbar">
+                <div class="user-navbar__cart-icon-container">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                </div>
+                <div class="user-navbar__user-avatar-container">                
+                    <!-- TODO: add avatar of person or item-->
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Default_pfp.svg/100px-Default_pfp.svg.png" class="user-navbar__user-avatar" alt="Imagen de usuario">
+                </div>
+            </div>
 
             <input type="checkbox" class="navbar__menu-btn" id="menu-btn">
-            
+
             <label for="menu-btn" class="navbar__menu-label">
                 <span class="navbar__menu-icon"></span>
             </label>
@@ -38,164 +50,156 @@
                 </li>
             </ul>
         </nav>
-        <div class="user-navbar">
-            <div class="user-navbar__cart-icon-container">
-                <!-- TODO: add font icon of a cart icon item -->
-                IC
-            </div>
-            <!-- TODO: add avatar of person or item-->
-        </div>
     </header>
     <!--TODO: Implementar carousel en 2do modulo-->
-    <main>
-        <main>
-            <section class="section-cards">
-                <header class="section-cards__header">
-                    <div class="section-cards__title-container">
-                        <h1 class="section-cards__title">
-                            Lorem ipsum dolor sit amet.
-                        </h1>
-                        <p class="section-cards__subtitle">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores cumque, obcaecati quas
-                            laboriosam tenetur facilis.
-                        </p>
-                    </div>
-                    <div class="section-cards__products-search-container">
-                        <div class="product-search">
-                            <label for="" class="product-search__label">
-                                Buscar
-                            </label>
-                            <input type="text" class="product-search__input">
-                            <button class="product-search__btn">Buscar</button>
-                        </div>
-                        <div class="section-cards__products-count">
-                            Se encontraron X productos
-                        </div>
-                    </div>
-                </header>
-                <!-- dentro de las section podes volver a declarar header y mains -->
-                <div class="cards-container">
-                    <h1 class="cards-container__category">
-                        CATEGORIA: OFERTAS
+    <main class="main">
+        <section class="section-cards">
+            <header class="section-cards__header">
+                <div class="section-cards__title-container">
+                    <h1 class="section-cards__title">
+                        Lorem ipsum dolor sit amet.
                     </h1>
-                    <!-- elementos especificos dentro de un section que tratan de un tema en aprticular == article definicion -->
-                    <article class="card">
-                        <div class="card__header">
-                            <img src="#" alt="Product Image" class="card__img">
-                        </div>
-                        <div class="card__body">
-                            <div class="card__title">
-                                PRODUCT NAME
-                            </div>
-                            <p class="card__description">
-                                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quas velit fuga deserunt fugit
-                                quia quo magni repudiandae, asperiores quos sapiente?
-                            </p>
-                            <div class="card__price">
-                                $ XXXXX
-                            </div>
-                        </div>
-                        <div class="card__footer">
-                            <div class="card__date">
-                                13/12/2022
-                            </div>
-                            <div class="card__btn-container">
-                                <a class="card__btn" href="#">
-                                    Detalle
-                                </a>
-                            </div>
-                        </div>
-                    </article>
-                    <article class="card">
-                        <div class="card__header">
-                            <img src="#" alt="Product Image" class="card__img">
-                        </div>
-                        <div class="card__body">
-                            <div class="card__title">
-                                PRODUCT NAME
-                            </div>
-                            <p class="card__description">
-                                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quas velit fuga deserunt fugit
-                                quia quo magni repudiandae, asperiores quos sapiente?
-                            </p>
-                            <div class="card__price">
-                                $ XXXXX
-                            </div>
-                        </div>
-                        <div class="card__footer">
-                            <div class="card__date">
-                                13/12/2022
-                            </div>
-                            <div class="card__btn-container">
-                                <a class="card__btn" href="#">
-                                    Detalle
-                                </a>
-                            </div>
-                        </div>
-                    </article>
-                    <article class="card">
-                        <div class="card__header">
-                            <img src="#" alt="Product Image" class="card__img">
-                        </div>
-                        <div class="card__body">
-                            <div class="card__title">
-                                PRODUCT NAME
-                            </div>
-                            <p class="card__description">
-                                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quas velit fuga deserunt fugit
-                                quia quo magni repudiandae, asperiores quos sapiente?
-                            </p>
-                            <div class="card__price">
-                                $ XXXXX
-                            </div>
-                        </div>
-                        <div class="card__footer">
-                            <div class="card__date">
-                                13/12/2022
-                            </div>
-                            <div class="card__btn-container">
-                                <a class="card__btn" href="#">
-                                    Detalle
-                                </a>
-                            </div>
-                        </div>
-                    </article> 
-                    <article class="card">
-                        <div class="card__header">
-                            <img src="#" alt="Product Image" class="card__img">
-                        </div>
-                        <div class="card__body">
-                            <div class="card__title">
-                                PRODUCT NAME
-                            </div>
-                            <p class="card__description">
-                                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quas velit fuga deserunt fugit
-                                quia quo magni repudiandae, asperiores quos sapiente?
-                            </p>
-                            <div class="card__price">
-                                $ XXXXX
-                            </div>
-                        </div>
-                        <div class="card__footer">
-                            <div class="card__date">
-                                13/12/2022
-                            </div>
-                            <div class="card__btn-container">
-                                <a class="card__btn" href="#">
-                                    Detalle
-                                </a>
-                            </div>
-                        </div>
-                    </article>                   
+                    <p class="section-cards__subtitle">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores cumque, obcaecati quas
+                        laboriosam tenetur facilis.
+                    </p>
                 </div>
-            </section>
-        </main>
-    </main>       
+                <div class="section-cards__products-search-container">
+                    <div class="product-search">
+                        <label for="" class="product-search__label">
+                            Buscar
+                        </label>
+                        <input type="text" class="product-search__input">
+                        <button class="product-search__btn">Buscar</button>
+                    </div>
+
+                    <div class="section-cards__products-count">
+                        Se encontraron X productos
+                    </div>
+                </div>
+            </header>
+            <!-- dentro de las section podes volver a declarar header y mains -->
+            <div class="cards-container">
+                <h1 class="cards-container__category">
+                    CATEGORIA: OFERTAS
+                </h1>
+                <!-- elementos especificos dentro de un section que tratan de un tema en aprticular == article definicion -->
+                <article class="card">
+                    <div class="card__header">
+                        <img src="#" alt="Product Image" class="card__img">
+                    </div>
+                    <div class="card__body">
+                        <div class="card__title">
+                            PRODUCT NAME
+                        </div>
+                        <p class="card__description">
+                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quas velit fuga deserunt fugit
+                            quia quo magni repudiandae, asperiores quos sapiente?
+                        </p>
+                        <div class="card__price">
+                            $ XXXXX
+                        </div>
+                    </div>
+                    <div class="card__footer">
+                        <div class="card__date">
+                            13/12/2022
+                        </div>
+                        <div class="card__btn-container">
+                            <a class="card__btn" href="#">
+                                Detalle
+                            </a>
+                        </div>
+                    </div>
+                </article>
+                <article class="card">
+                    <div class="card__header">
+                        <img src="#" alt="Product Image" class="card__img">
+                    </div>
+                    <div class="card__body">
+                        <div class="card__title">
+                            PRODUCT NAME
+                        </div>
+                        <p class="card__description">
+                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quas velit fuga deserunt fugit
+                            quia quo magni repudiandae, asperiores quos sapiente?
+                        </p>
+                        <div class="card__price">
+                            $ XXXXX
+                        </div>
+                    </div>
+                    <div class="card__footer">
+                        <div class="card__date">
+                            13/12/2022
+                        </div>
+                        <div class="card__btn-container">
+                            <a class="card__btn" href="#">
+                                Detalle
+                            </a>
+                        </div>
+                    </div>
+                </article>
+                <article class="card">
+                    <div class="card__header">
+                        <img src="#" alt="Product Image" class="card__img">
+                    </div>
+                    <div class="card__body">
+                        <div class="card__title">
+                            PRODUCT NAME
+                        </div>
+                        <p class="card__description">
+                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quas velit fuga deserunt fugit
+                            quia quo magni repudiandae, asperiores quos sapiente?
+                        </p>
+                        <div class="card__price">
+                            $ XXXXX
+                        </div>
+                    </div>
+                    <div class="card__footer">
+                        <div class="card__date">
+                            13/12/2022
+                        </div>
+                        <div class="card__btn-container">
+                            <a class="card__btn" href="#">
+                                Detalle
+                            </a>
+                        </div>
+                    </div>
+                </article>
+                <article class="card">
+                    <div class="card__header">
+                        <img src="#" alt="Product Image" class="card__img">
+                    </div>
+                    <div class="card__body">
+                        <div class="card__title">
+                            PRODUCT NAME
+                        </div>
+                        <p class="card__description">
+                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quas velit fuga deserunt fugit
+                            quia quo magni repudiandae, asperiores quos sapiente?
+                        </p>
+                        <div class="card__price">
+                            $ XXXXX
+                        </div>
+                    </div>
+                    <div class="card__footer">
+                        <div class="card__date">
+                            13/12/2022
+                        </div>
+                        <div class="card__btn-container">
+                            <a class="card__btn" href="#">
+                                Detalle
+                            </a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+    </main>
     <footer class="footer">
         <div class="footer__column">
             <ul class="footer__social-media-container">
-                <li class="footer__contact-item">                   
-                    <a href="#" class="footer__contact-link">                        
+                <li class="footer__contact-item">
+                    <a href="#" class="footer__contact-link">
                         <i class="fa-brands fa-facebook footer__contact-icon
                         footer__contact-icon--facebook"></i>
                         Facebook
@@ -251,4 +255,5 @@
         </div>
     </footer>
 </body>
+
 </html>
