@@ -1,24 +1,119 @@
-
-.main-nav{
-    background-color: $color-bg-primary;
-    color: $color-text-light;
-    height: 60px;
+.header{    
+    position: fixed; //para que se quede fijo el header
+    width: 100%; //se le da 100% ya que al decirle que este fijo ocupa solo lo que ocupa sus elementos
+}
+.navbar{
+    height: 50px;
+    background-color: $color-bg-secondary;
     display: flex;
     align-items: center;
+    position: relative;
+    &__logo{
+        height: 45px;
+    }
+    &__menu-label{
+        color: $color-text-light;
+        margin-left: auto;
+        height: 42px;
+        background-color: orangered;   //fondo del menu hamburguesa
+        width: 42px;
+        margin-right: 4px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
 
-    .nav-links{
-        padding: 2rem;
-        .nav-item{
-            text-decoration: none;
-            color: $color-text-light;
-            &.active{
-                color: cornflowerblue;
-                font-weight: 500
-            }
-            &:hover{
-                font-size: 1.2rem;
-                color: darkred;
-            }
+    &__menu-btn{
+        position: absolute;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        opacity: 0;
+    }
+
+    &__menu-btn:checked ~ &__nav-links-container{
+        //height: auto;
+        height: calc(100vh - 50px); /*este calculo es para que se despliegue todo el menu*/
+    }
+
+
+
+    &__menu-icon{
+        height: 2px;
+        background-color: $color-text-light;
+        width: 18px;
+        position: relative;
+
+        &::after, &::before{
+            content: "";    //hace esto para crear una linea para el menu
+            height: 2px;
+            background-color: $color-text-light;
+            position: absolute;
+            width: 100%;
+            transition: all .2s ease-out;
+        }
+        &::after{
+            top: 5px;   //crea una encima
+        }
+        &::before{
+            top: -5px;  //otra debajo
+        }
+    }
+    
+    &__menu-btn:checked ~ &__menu-label &__menu-icon{
+        // background-color: $color-bg-primary;    //esto asi me pinta la linea del medio de verde
+        background: transparent;
+        &::after{
+            transform: rotate(45deg);
+            top: 0;
+        }
+        &::before{
+            transform: rotate(-45deg);
+            top: 0;
+        }
+    }
+
+    &__nav-links-container{
+        list-style: none;
+        position: absolute;
+        top: 50px;
+        background-color: red;
+        width: 100%;
+        /*se puede hacer con una transicion*/
+        height: 0;
+        overflow: hidden;
+        transition: all .3s ease-out;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center; //creo que lo mejor va a ser ponerle center, queda mas bueno, aunque se puede probar con space-evenly u otros
+    }
+
+    &__nav-item{
+        padding: .75rem 1rem;
+        // background-color: blue;
+
+        &:not(:last-child){            
+            border-bottom: 1px solid rgb(156, 156, 156);
+        }
+    }
+    &__nav-link{
+        color: $color-text-light;
+    }
+}
+
+@media screen and (min-width: 600px) {
+    .navbar{
+        &__menu-label, &__menu-btn{
+            display: none;
+        }    
+        &__nav-links-container{
+            position: static;
+            flex-direction: row;
+            height: 100% !important; 
+            width: auto;
+            // background-color: transparent;
         }
     }
 }
+
