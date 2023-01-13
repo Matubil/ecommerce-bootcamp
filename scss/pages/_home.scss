@@ -14,14 +14,14 @@
     }
     .cards-container{
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(200px ,1 fr));     //auto fit quiere decir que repita a medida que pueda llenar que meta lo que pueda en 200 px o sino que ponga 1fr que ocupe todo eso y hasta un min de 200px
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));     //auto fit quiere decir que repita a medida que pueda llenar que meta lo que pueda en 200 px o sino que ponga 1fr que ocupe todo eso y hasta un min de 200px
     }
 }
 
 @media screen and (min-width: 600px) {
-    .cards-container{
-        grid-template-columns: repeat(auto-fit, minmax(200px ,1 fr)); //le digo que muestre 2 elementos cuando entre en modo tablet
-    }
+    // .cards-container{
+    //     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); //le digo que muestre 2 elementos cuando entre en modo tablet
+    // }
 }
 
 @media screen and (min-width: 1000px) {
