@@ -2,8 +2,14 @@
     display: flex;
     flex-direction: column;
     background-color: $color-dark-grey;
+    align-items: center;
     &__column{
         padding: 1rem 1.5rem;
+        &:nth-child(2){            
+            border-top: 0.01rem solid white;
+            border-bottom: 0.01rem solid white;
+
+        }
     }
 
     &__contact-item{
@@ -33,5 +39,16 @@
 @media screen and(min-width: 600px){
     .footer{
         flex-direction: row;
+        justify-content:space-around;
+        
+        &__column{
+            &:nth-child(2){  
+                border-top: none;
+                border-bottom: none;          
+                border-left: 0.01rem solid white;
+                border-right: 0.01rem solid white;
+                padding: 0 3rem;
+            }
+        }
     }
 }
