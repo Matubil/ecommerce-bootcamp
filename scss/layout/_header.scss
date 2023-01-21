@@ -4,13 +4,15 @@
     top: 0;
 }
 .navbar{
-    height: 50px;
+    height: 60px;
     background-color: $color-bg-secondary;
     display: flex;
     align-items: center;
     position: relative;
+    // TODO: CENTER Navbar registro, inicio, etc
     &__logo{
-        height: 45px;
+        height: 55px;
+        padding-right: 0.2rem;
     }
     &__menu-label{
         color: $color-text-light;
@@ -115,7 +117,7 @@
         width: 40px;
     }
     &__cart-icon-container{
-        color: orange;
+        color: white;
         font-size: 1.5rem;
     }
 }
@@ -132,13 +134,31 @@
             width: auto;
             // background-color: transparent;
         }
+        &__nav-item{
+            &:not(:last-child){            
+                border-bottom: none;
+            }
+        }
+        &__nav-link:not(:has(img)){          
+            
+            padding: 0.25rem 1rem;
+            border-left: 0.2rem solid gray  ;
+            border-right: 0.2rem solid gray  ;
+            border-bottom: transparent;
+            &:hover{                       
+                transition: border 2s ease;          
+                border-left: 0.2rem solid cyan  ;
+                border-right: 0.2rem solid cyan  ;
+            }
+        }
 
-        // &:not(:last-child){         //declarar para eso no se vea la linea
-        //     border-bottom: 1px solid rgb(156, 156, 156);
-        // }
     }
     .user-navbar{
         order: 3; //para ponerlo en la tercera posicion
+        &__cart-icon-container:hover{
+            transition: color 1s ease;
+            color: cyan;
+        }
     }
 }
 

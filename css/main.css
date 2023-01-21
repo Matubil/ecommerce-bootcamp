@@ -77,14 +77,15 @@ body {
 }
 
 .navbar {
-  height: 50px;
+  height: 60px;
   background-color: rgb(35, 35, 35);
   display: flex;
   align-items: center;
   position: relative;
 }
 .navbar__logo {
-  height: 45px;
+  height: 55px;
+  padding-right: 0.2rem;
 }
 .navbar__menu-label {
   color: rgb(255, 255, 255);
@@ -174,7 +175,7 @@ body {
   width: 40px;
 }
 .user-navbar__cart-icon-container {
-  color: orange;
+  color: white;
   font-size: 1.5rem;
 }
 
@@ -188,8 +189,26 @@ body {
     height: 100% !important;
     width: auto;
   }
+  .navbar__nav-item:not(:last-child) {
+    border-bottom: none;
+  }
+  .navbar__nav-link:not(:has(img)) {
+    padding: 0.25rem 1rem;
+    border-left: 0.2rem solid gray;
+    border-right: 0.2rem solid gray;
+    border-bottom: transparent;
+  }
+  .navbar__nav-link:not(:has(img)):hover {
+    transition: border 2s ease;
+    border-left: 0.2rem solid cyan;
+    border-right: 0.2rem solid cyan;
+  }
   .user-navbar {
     order: 3;
+  }
+  .user-navbar__cart-icon-container:hover {
+    transition: color 1s ease;
+    color: cyan;
   }
 }
 .footer {
