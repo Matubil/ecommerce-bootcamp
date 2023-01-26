@@ -122,7 +122,7 @@
     }
 }
 
-@media screen and (min-width: 640px) and (max-width: 960px) {
+@media screen and (min-width: 640px) and (max-width: 1024px) {
     .navbar{
         position: static;
         height: 50px;
@@ -137,7 +137,7 @@
             background-color: transparent;
         }
         &__nav-item{
-            padding: 1.25rem 0.5rem;
+            padding: 1.25rem 0. 5rem;
             background: linear-gradient(180deg, rgb(64, 64, 64) 0%, black 100%);
             &:not(:last-child){            
                 border-bottom: none;
@@ -172,7 +172,7 @@
 
 
 
-@media screen and (min-width: 720px) {
+@media screen and (min-width: 1024px) {
     .navbar{
         position: static;
 
