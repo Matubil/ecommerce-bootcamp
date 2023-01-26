@@ -18,7 +18,7 @@
         color: $color-text-light;
         // margin-left: auto;
         height: 42px;
-        background-color: orangered;   //fondo del menu hamburguesa
+        background-color: cyan;   //fondo del menu hamburguesa
         width: 42px;
         margin-right: 4px;
         display: flex;
@@ -79,7 +79,7 @@
     &__nav-links-container{
         list-style: none;
         position: absolute;
-        top: 50px;
+        top: 60px;
         background-color: red;
         width: 100%;
         /*se puede hacer con una transicion*/
@@ -122,21 +122,79 @@
     }
 }
 
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 600px) and (max-width: 770px) {
     .navbar{
+        position: static;
+
         &__menu-label, &__menu-btn{
             display: none;
         }    
         &__nav-links-container{
             position: static;
             flex-direction: row;
-            height: 100% !important; 
-            width: auto;
-            // background-color: transparent;
+            height: 100%; 
+            width: 550px;
+            background-color: transparent;
         }
         &__nav-item{
+            padding: 1.25rem 0.15rem;
+            background: linear-gradient(180deg, rgb(64, 64, 64) 0%, black 100%);
             &:not(:last-child){            
                 border-bottom: none;
+            }
+            &:hover{                
+                background: linear-gradient(180deg, black 0%, rgb(64, 64, 64) 100%);
+                transition: background 0.5s ease-in-out;
+            }
+        }
+        &__nav-link:not(:has(img)){          
+            
+            padding: 0.10rem 1rem;
+            border-left: 0.2rem solid gray  ;
+            border-right: 0.2rem solid gray  ;
+            border-bottom: transparent;
+            &:hover{                       
+                transition: border 2s ease;          
+                border-left: 0.2rem solid cyan  ;
+                border-right: 0.2rem solid cyan  ;
+            }
+        }
+
+    }
+    .user-navbar{
+        order: 3; //para ponerlo en la tercera posicion
+        &__cart-icon-container:hover{
+            transition: color 1s ease;
+            color: cyan;
+        }
+    }
+}
+
+
+
+@media screen and (min-width: 700px) {
+    .navbar{
+        position: static;
+
+        &__menu-label, &__menu-btn{
+            display: none;
+        }    
+        &__nav-links-container{
+            position: static;
+            flex-direction: row;
+            height: 100%; 
+            width: 550px;
+            background-color: transparent;
+        }
+        &__nav-item{
+            padding: 1.25rem 0.75rem;
+            background: linear-gradient(180deg, rgb(64, 64, 64) 0%, black 100%);
+            &:not(:last-child){            
+                border-bottom: none;
+            }
+            &:hover{                
+                background: linear-gradient(180deg, black 0%, rgb(64, 64, 64) 100%);
+                transition: background 0.5s ease-in-out;
             }
         }
         &__nav-link:not(:has(img)){          
