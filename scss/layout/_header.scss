@@ -122,10 +122,10 @@
     }
 }
 
-@media screen and (min-width: 600px) and (max-width: 770px) {
+@media screen and (min-width: 640px) and (max-width: 960px) {
     .navbar{
         position: static;
-
+        height: 50px;
         &__menu-label, &__menu-btn{
             display: none;
         }    
@@ -133,11 +133,11 @@
             position: static;
             flex-direction: row;
             height: 100%; 
-            width: 550px;
+            width: 408px;
             background-color: transparent;
         }
         &__nav-item{
-            padding: 1.25rem 0.15rem;
+            padding: 1.25rem 0.5rem;
             background: linear-gradient(180deg, rgb(64, 64, 64) 0%, black 100%);
             &:not(:last-child){            
                 border-bottom: none;
@@ -149,7 +149,7 @@
         }
         &__nav-link:not(:has(img)){          
             
-            padding: 0.10rem 1rem;
+            padding: 0.1rem 0.5rem;
             border-left: 0.2rem solid gray  ;
             border-right: 0.2rem solid gray  ;
             border-bottom: transparent;
@@ -172,7 +172,7 @@
 
 
 
-@media screen and (min-width: 700px) {
+@media screen and (min-width: 720px) {
     .navbar{
         position: static;
 
