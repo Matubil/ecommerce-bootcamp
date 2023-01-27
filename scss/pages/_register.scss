@@ -1,19 +1,4 @@
 
-/* HEADER -**********************************************/
-.header{
-    background-color: black;
-}
-.main{
-    padding: 2rem;
-}
-.header__logo{
-    width: 4.5rem;
-
-}
-/* FIN HEADER -*****************************************/
-
-
-/* TITULO -*********************************************/
 .title{
     font-family: Arial, Helvetica, sans-serif;
     text-align: center;
@@ -22,7 +7,7 @@
     color: black;
     padding: 1rem;
 }
-/* FIN TITULO -*****************************************/
+
 
 
 .section{
@@ -30,7 +15,6 @@
     justify-content: center;
 }
 
-/* FORMULARIO -*****************************************/
 
 .register{
     margin: 5rem 0;
@@ -83,9 +67,6 @@ padding: .5rem;
     border-radius: 4px;
 }
 
-/* FIN FORMULARIO -**************************************/
-
-/* FOOTER -*********************************************/
 
 footer{
     font-family: Arial, Helvetica, sans-serif;
@@ -96,7 +77,6 @@ footer{
     width: 100%;
 }
 
-/* FIN FOOTER -****************************************/
 @media screen and (min-width: 600px){
     html{
         font-size: 16px;
