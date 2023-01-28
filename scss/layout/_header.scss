@@ -18,7 +18,7 @@
         color: $color-text-light;
         // margin-left: auto;
         height: 42px;
-        background-color: cyan;   //fondo del menu hamburguesa
+        background-color: red;   //fondo del menu hamburguesa
         width: 42px;
         margin-right: 4px;
         display: flex;
@@ -154,7 +154,7 @@
             border-right: 0.2rem solid gray  ;
             border-bottom: transparent;
             &:hover{                       
-                transition: border 2s ease;          
+                transition: border 0s ease;          
                 border-left: 0.2rem solid cyan  ;
                 border-right: 0.2rem solid cyan  ;
             }

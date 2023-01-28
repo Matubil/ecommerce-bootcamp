@@ -1,0 +1,19 @@
+.whatsapp-container {
+    margin: 15px;
+    position: fixed;
+    right: 0;
+    bottom: 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.whatsapp-container .go-top {
+    color: black;
+    font-size: 30px;
+}
+
+.whatsapp-container img {
+    width: 50px;
+}
