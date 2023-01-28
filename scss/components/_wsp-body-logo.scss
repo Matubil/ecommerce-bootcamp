@@ -6,14 +6,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-}
 
-
-.whatsapp-container .go-top {
-    color: black;
-    font-size: 30px;
-}
-
-.whatsapp-container img {
-    width: 50px;
+    &__img {
+        width: 4rem;
+    }
 }
