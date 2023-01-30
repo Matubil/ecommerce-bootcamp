@@ -1,6 +1,6 @@
 .header{    
     position: fixed;
-    width: 100%;
+    width: 100%; 
     top: 0;    
     z-index: 1;
 }
@@ -20,7 +20,7 @@
     &__menu-label{
         color: $color-text-light;
         height: 42px;
-        background-color: $color-bg-main; 
+        background-color: $color-bg-primary;  
         width: 42px;
         margin-right: 4px;
         display: flex;
@@ -38,6 +38,7 @@
     }
 
     &__menu-btn:checked ~ &__nav-links-container{
+        //height: auto;
         height: calc(100vh - 50px); 
     }
 
@@ -108,7 +109,8 @@
     }
 }
 
-.user-navbar{ 
+.user-navbar{  
+
     margin-left: auto;
     color: $color-text-light;
     display: flex;
@@ -212,6 +214,7 @@
 
     }
     .user-navbar{
+        order: 3; 
         &__cart-icon-container:hover{
             transition: color 0.5s ease;
             color: $color-bg-primary;
