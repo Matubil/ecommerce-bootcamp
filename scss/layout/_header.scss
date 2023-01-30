@@ -1,6 +1,6 @@
 .header{    
-    position: fixed; //para que se quede fijo el header
-    width: 100%; //se le da 100% ya que al decirle que este fijo ocupa solo lo que ocupa sus elementos
+    position: fixed;
+    width: 100%;
     top: 0;    
     z-index: 1;
 }
@@ -19,9 +19,8 @@
     }
     &__menu-label{
         color: $color-text-light;
-        // margin-left: auto;
         height: 42px;
-        background-color: cyan;   //fondo del menu hamburguesa
+        background-color: $color-bg-main; 
         width: 42px;
         margin-right: 4px;
         display: flex;
@@ -39,8 +38,7 @@
     }
 
     &__menu-btn:checked ~ &__nav-links-container{
-        //height: auto;
-        height: calc(100vh - 50px); /*este calculo es para que se despliegue todo el menu*/
+        height: calc(100vh - 50px); 
     }
 
 
@@ -52,7 +50,7 @@
         position: relative;
 
         &::after, &::before{
-            content: "";    //hace esto para crear una linea para el menu
+            content: ""; 
             height: 2px;
             background-color: $color-text-light;
             position: absolute;
@@ -60,15 +58,14 @@
             transition: all .2s ease-out;
         }
         &::after{
-            top: 5px;   //crea una encima
+            top: 5px;  
         }
         &::before{
-            top: -5px;  //otra debajo
+            top: -5px;  
         }
     }
     
     &__menu-btn:checked ~ &__menu-label &__menu-icon{
-        // background-color: $color-bg-primary;    //esto asi me pinta la linea del medio de verde
         background: transparent;
         &::after{
             transform: rotate(45deg);
@@ -86,20 +83,18 @@
         top: 60px;
         background-color: rgb(47, 47, 47);
         width: 100%;
-        /*se puede hacer con una transicion*/
         height: 0;
         overflow: hidden;
         transition: all .3s ease-out;
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: center; //creo que lo mejor va a ser ponerle center, queda mas bueno, aunque se puede probar con space-evenly u otros
+        justify-content: center; 
         text-shadow: 0px 0px 4px rgba(0,194,255,1);
     }
 
     &__nav-item{
         padding: 1.25rem 1rem;
-        // background-color: blue;
 
         &:not(:last-child){            
             border-bottom: 1px solid rgb(156, 156, 156);
@@ -113,10 +108,9 @@
     }
 }
 
-.user-navbar{   //ya que es casi como un bloque no es necesario seguirlo poniendo dentro de otro bloque, entonces lo mas conveniente es declararlo afuera, ya que va a tener bastantes cosas dentro
-
+.user-navbar{ 
     margin-left: auto;
-    color: white;
+    color: $color-text-light;
     display: flex;
     gap: .5rem;
     align-items: center;
@@ -125,7 +119,7 @@
         width: 40px;
     }
     &__cart-icon-container{
-        color: white;
+        color: $color-text-light;
         font-size: 1.5rem;
     }
 }
@@ -145,7 +139,6 @@
         }
         &__nav-item{
             padding: 1.25rem 0.5rem;
-            // background: linear-gradient(180deg, rgb(64, 64, 64) 0%, black 100%);
             &:not(:last-child){            
                 border-bottom: none;
             }
@@ -170,7 +163,7 @@
 
     }
     .user-navbar{
-        order: 3; //para ponerlo en la tercera posicion
+        order: 3; 
         &__cart-icon-container:hover{
             transition: color 1s ease;
             color: $color-bg-primary;
@@ -195,7 +188,6 @@
         }
         &__nav-item{
             padding: 1.25rem 0.75rem;
-            // background: linear-gradient(180deg, rgb(64, 64, 64) 0%, black 100%);
             &:not(:last-child){            
                 border-bottom: none;
             }
@@ -220,10 +212,9 @@
 
     }
     .user-navbar{
-        order: 3; //para ponerlo en la tercera posicion
         &__cart-icon-container:hover{
             transition: color 0.5s ease;
-            color: cyan;
+            color: $color-bg-primary;
         }
     }
 }
