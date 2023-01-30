@@ -5,7 +5,7 @@
     }   
     &__title{        
         color: #444;
-        font-size: 1.8rem;
+        font-size: 3rem;
         font-weight: 400;
         color: $color-bg-primary;
         font-family: 'Skranji', 'Inter', Arial, sans-serif;
@@ -16,6 +16,7 @@
         color: $color-text-light;
         font-size: 1rem;
         font-weight: bold;
+        padding-bottom: 1rem;
     }
     &__subtitle span{
         color: $color-bg-primary;
@@ -28,6 +29,7 @@
         width: 90%;
         margin: auto;
         color: $color-text-light;
+        
     }
     &__category{
         margin: 0.75rem;
@@ -37,12 +39,13 @@
     }
     .cards-container{
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));     //auto fit quiere decir que repita a medida que pueda llenar que meta lo que pueda en 200 px o sino que ponga 1fr que ocupe todo eso y hasta un min de 200px
+        grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));     //auto fit quiere decir que repita a medida que pueda llenar que meta lo que pueda en 200 px o sino que ponga 1fr que ocupe todo eso y hasta un min de 200px
     }
 }
 
 .product-search{
     &__input{
+        padding: 0.5rem;
         border-radius: 10px;
         height: 25px;
         width: 18rem;
@@ -70,16 +73,25 @@
         &__title-container{
             margin: 0 1rem;
         }
+        &__title{            
+            font-size: 3.5rem;
+        }
+        &__products-search-container{
+            font-size: 0.75rem;
+            font-weight: bold;
+            width: 90%;
+            height: 4rem;            
+            
+        }
+        .cards-container{
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+        }
     }
-    // .cards-container{
-    //     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); //le digo que muestre 2 elementos cuando entre en modo tablet
-    // }
 }
 
 @media screen and (min-width: 1000px) {
     .section-cards{
         &__header{
-            // display: flex;
             margin: 0 1rem;
         }
         &__title-container{
@@ -92,13 +104,8 @@
         &__subtitle{
             margin-top: 0.5rem;
         }
-        &__products-search-container{
-            margin-top: 1rem;
-            width: 90%;
-            height: 4rem;
-            font-size: 0.75rem;
-            font-weight: bold;
-            
+        .cards-container{
+            grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
         }
     }
     .product-search{
