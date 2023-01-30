@@ -9,6 +9,7 @@
     display: flex;
     align-items: center;
     position: relative;
+
     // TODO: CENTER Navbar registro, inicio, etc
     &__logo{
         height: 55px;
@@ -24,6 +25,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
+        border-radius: 20px;
     }
 
     &__menu-btn{
@@ -80,7 +82,7 @@
         list-style: none;
         position: absolute;
         top: 60px;
-        background-color: red;
+        background-color: rgb(47, 47, 47);
         width: 100%;
         /*se puede hacer con una transicion*/
         height: 0;
@@ -90,6 +92,7 @@
         flex-direction: column;
         align-items: center;
         justify-content: center; //creo que lo mejor va a ser ponerle center, queda mas bueno, aunque se puede probar con space-evenly u otros
+        text-shadow: 0px 0px 4px rgba(0,194,255,1);
     }
 
     &__nav-item{
@@ -102,6 +105,9 @@
     }
     &__nav-link{
         color: $color-text-light;
+        &:hover{
+            color: $color-bg-primary;
+        }
     }
 }
 
@@ -125,7 +131,7 @@
 @media screen and (min-width: 640px) and (max-width: 1024px) {
     .navbar{
         position: static;
-        height: 50px;
+        height: 60px;
         &__menu-label, &__menu-btn{
             display: none;
         }    
@@ -154,9 +160,10 @@
             border-right: 0.2rem solid gray  ;
             border-bottom: transparent;
             &:hover{                       
+                color: $color-bg-primary;                
                 transition: border 0.5s ease;          
-                border-left: 0.2rem solid cyan  ;
-                border-right: 0.2rem solid cyan  ;
+                border-left: 0.2rem solid $color-bg-primary  ;
+                border-right: 0.2rem solid $color-bg-primary  ;
             }
         }
 
@@ -165,7 +172,7 @@
         order: 3; //para ponerlo en la tercera posicion
         &__cart-icon-container:hover{
             transition: color 1s ease;
-            color: cyan;
+            color: $color-bg-primary;
         }
     }
 }
@@ -183,7 +190,7 @@
             position: static;
             flex-direction: row;
             height: 100%; 
-            width: 550px;
+            width: 500px;
             background-color: transparent;
         }
         &__nav-item{
@@ -204,9 +211,10 @@
             border-right: 0.2rem solid gray  ;
             border-bottom: transparent;
             &:hover{                       
+                color: $color-bg-primary;
                 transition: border 0.5s ease;          
-                border-left: 0.2rem solid cyan  ;
-                border-right: 0.2rem solid cyan  ;
+                border-left: 0.2rem solid $color-bg-primary  ;
+                border-right: 0.2rem solid $color-bg-primary  ;
             }
         }
 

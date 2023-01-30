@@ -1,7 +1,8 @@
 .footer{
     display: flex;
-    background-color: $color-dark-grey;
+    background-color: $color-bg-secondary;
     align-items: center;
+    flex-direction: column;
     &__column{
         padding: 1rem 1.5rem;
         &:nth-child(2){            
@@ -32,6 +33,12 @@
         &--linkedin {
             color: #0077b6;
         }
+    }
+    &__logo{
+        width: 3rem;
+    }
+    &__company-name{
+        font-family: 'Skranji', 'Inter', Arial, sans-serif;
     }
 }
 

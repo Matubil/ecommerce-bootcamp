@@ -1,41 +1,31 @@
-
-.main-contact{
-    background-color: purple;
-}
-
-.section-contact{
-    background-color: green;
-}
-
 .contact-container {
     display: flex;
     flex-direction: column;
-    background-color: blue;
+    background: $color-bg-main;
     align-items: center;
     margin-top: 50px;
-    &__item {
+    &__item {         
         margin-top: 40px;
         width: 90%;
-
         &:last-child {
             margin-bottom: 50px;
         }
-
         box-shadow: 0px 0px 14px 8px rgba(0, 0, 0, 0.75);
+        &:hover{
+            text-shadow: 0px 0px 5px rgba(0,194,255,1);
+        }
     }
 
     .contact-title {
         font-family: Arial, Helvetica, sans-serif;
         text-align: center;
         font-weight: bold;
-        color: black;
+        color: $color-text-light;
         margin: 1rem;
     }
 }
 
 .form-contact {
-    color: $color-text-light;
-    // margin: 1.5rem;
     padding: 1.5rem;
     background-color: #222222;
     font-family: Arial, Helvetica, sans-serif;
@@ -43,19 +33,26 @@
 
     &__container {
         display: block;
-        width: 100%;
-        color: white;
+        width: 100%;        
+        color: $color-bg-primary;  
     }
 }
 
 .contact-btn {
-    margin-top: 0.1rem;
+    margin-top: 0.5rem;
     height: 35px;
     width: 60px;
-    background-color: red;
-    border-color: rgb(192, 192, 192);
+    background-color: $color-bg-secondary;
+    border-color: $color-bg-primary;
     border-radius: 5px;
     box-shadow: none;
+    color: $color-text-light;
+    text-shadow: 0px 0px 5px rgba(0,194,255,1);
+    &:hover{ 
+        background-color: $color-bg-primary;
+        border-color: rgb(255, 255, 255);
+        color: black;
+    }
 }
 
 .consult-container {
@@ -78,13 +75,14 @@
 
 
     .contact-container{
-        border:  2px solid red;
+        border:  2px solid $color-bg-primary;
         flex-direction: row;
         justify-content: space-between;
-        // margin: 50px 0;
+        border-radius: 10px;
         padding: 50px 0;
+        margin: 3rem 1rem;
         &__item{
-            border: 3px solid green;
+            border: 3px solid $color-bg-main;
             margin: 0 2rem;
         }
         &__item:nth-child(2) {

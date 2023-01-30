@@ -2,10 +2,12 @@
 
 .card{
     margin: 1rem;
-    border: 1px solid red;
+    border: 1px solid white;
+    border-radius: 10px;
     &__header{
         height: 140px;
         background-color: orange;
+        border-radius: 10px 10px 0 0;
     }
     &___img{
         height: 120px;
@@ -27,6 +29,12 @@
         font-size: 1.25rem;
         color: $color-bg-primary;
     }
+    &__details{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 0 0.5rem;
+    }
     &__footer{
         display: flex;
         justify-content: space-between;
@@ -35,9 +43,9 @@
     &__date{
         color: dodgerblue;
     }
-    &__btn-container{
+    // &__btn-container{
 
-    }
+    // }
     &__btn{
         padding: 1rem 1.5rem;
         background-color: dodgerblue;
