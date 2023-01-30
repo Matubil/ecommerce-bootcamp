@@ -7,29 +7,30 @@
         color: #444;
         font-size: 1.8rem;
         font-weight: 400;
+        color: $color-bg-primary;
         font-family: 'Skranji', 'Inter', Arial, sans-serif;
         
     }    
-    &__title span{
-        color: $color-bg-primary;
-        
-    }
+    
     &__subtitle{
-        color: #444;
+        color: $color-text-light;
         font-size: 1rem;
         font-weight: bold;
+    }
+    &__subtitle span{
+        color: $color-bg-primary;
     }
     &__products-search-container{
         border-radius: 10px; /* o el valor de radio que desees */
         border: 1px solid rgb(4, 0, 9); /* opcional, para agregar un borde */
-        padding: 1rem;
-        background-color: cornflowerblue;
+        padding: 0.5rem;
+        background-color: #4b4b4b;
         width: 90%;
         margin: auto;
-        color: $color-bg-secondary;
+        color: $color-text-light;
     }
     &__category{
-        margin: 0.5rem;
+        margin: 0.75rem;
         text-align: center;
         font-weight: 400;
         border-bottom: 1px solid $color-bg-primary;
@@ -47,13 +48,19 @@
         width: 18rem;
     }
     &__btn{
-        margin-top: 0.1rem;
-        height: 25px;
+        height: 35px;
         width: 60px;
-        background-color: red;
-        border-color: rgb(192, 192, 192);
+        background-color: $color-bg-secondary;
+        border-color: #00759a;
         border-radius: 5px;
         box-shadow: none;
+        color: $color-text-light;
+        text-shadow: 0px 0px 5px rgba(0,194,255,1);
+        &:hover{ 
+            background-color: $color-bg-primary;
+            border-color: rgb(255, 255, 255);
+            color: black;
+        }
     }
 }
 
@@ -72,29 +79,34 @@
 @media screen and (min-width: 1000px) {
     .section-cards{
         &__header{
-            display: flex;
+            // display: flex;
             margin: 0 1rem;
         }
         &__title-container{
-            width: 250%;
+            width: 90%;
+            margin: auto;
+        }
+        &__title{            
+            font-size: 5rem;
         }
         &__subtitle{
             margin-top: 0.5rem;
         }
         &__products-search-container{
-            width: 50rem;
-            height: 5.5rem;
+            margin-top: 1rem;
+            width: 90%;
+            height: 4rem;
             font-size: 0.75rem;
             font-weight: bold;
+            
         }
     }
     .product-search{
         display: flex;
         align-items: center;
-        justify-content: space-between;        
+        justify-content: space-around;        
         &__input{
-            width: 10rem;
-            margin: 5px;
+            width: 80%;
         }
     }
 }

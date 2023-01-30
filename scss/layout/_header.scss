@@ -1,7 +1,8 @@
 .header{    
     position: fixed; //para que se quede fijo el header
     width: 100%; //se le da 100% ya que al decirle que este fijo ocupa solo lo que ocupa sus elementos
-    top: 0;
+    top: 0;    
+    z-index: 1;
 }
 .navbar{
     height: 60px;
@@ -14,6 +15,7 @@
     &__logo{
         height: 55px;
         padding-right: 0.2rem;
+        margin-left: 0.5rem;
     }
     &__menu-label{
         color: $color-text-light;
@@ -139,12 +141,11 @@
             position: static;
             flex-direction: row;
             height: 100%; 
-            width: 408px;
             background-color: transparent;
         }
         &__nav-item{
             padding: 1.25rem 0.5rem;
-            background: linear-gradient(180deg, rgb(64, 64, 64) 0%, black 100%);
+            // background: linear-gradient(180deg, rgb(64, 64, 64) 0%, black 100%);
             &:not(:last-child){            
                 border-bottom: none;
             }
@@ -190,12 +191,11 @@
             position: static;
             flex-direction: row;
             height: 100%; 
-            width: 500px;
             background-color: transparent;
         }
         &__nav-item{
             padding: 1.25rem 0.75rem;
-            background: linear-gradient(180deg, rgb(64, 64, 64) 0%, black 100%);
+            // background: linear-gradient(180deg, rgb(64, 64, 64) 0%, black 100%);
             &:not(:last-child){            
                 border-bottom: none;
             }

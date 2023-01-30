@@ -34,6 +34,11 @@ body {
   margin: 1rem;
   border: 1px solid white;
   border-radius: 10px;
+  background-color: #222222;
+}
+.card:hover {
+  box-shadow: 0px 0px 14px 8px rgba(0, 195, 255, 0.75);
+  text-shadow: 0px 0px 5px rgb(0, 194, 255);
 }
 .card__header {
   height: 140px;
@@ -77,6 +82,16 @@ body {
   padding: 1rem 1.5rem;
   background-color: dodgerblue;
   color: white;
+  background-color: rgb(16, 16, 16);
+  border: 2px solid #00759a;
+  border-radius: 5px;
+  box-shadow: none;
+  color: rgb(255, 255, 255);
+}
+.card__btn:hover {
+  background-color: #00c2ff;
+  border-color: rgb(255, 255, 255);
+  color: black;
 }
 
 .whatsapp-container {
@@ -96,6 +111,7 @@ body {
   position: fixed;
   width: 100%;
   top: 0;
+  z-index: 1;
 }
 
 .navbar {
@@ -108,6 +124,7 @@ body {
 .navbar__logo {
   height: 55px;
   padding-right: 0.2rem;
+  margin-left: 0.5rem;
 }
 .navbar__menu-label {
   color: rgb(255, 255, 255);
@@ -218,12 +235,10 @@ body {
     position: static;
     flex-direction: row;
     height: 100%;
-    width: 408px;
     background-color: transparent;
   }
   .navbar__nav-item {
     padding: 1.25rem 0.5rem;
-    background: linear-gradient(180deg, rgb(64, 64, 64) 0%, black 100%);
   }
   .navbar__nav-item:not(:last-child) {
     border-bottom: none;
@@ -263,12 +278,10 @@ body {
     position: static;
     flex-direction: row;
     height: 100%;
-    width: 500px;
     background-color: transparent;
   }
   .navbar__nav-item {
     padding: 1.25rem 0.75rem;
-    background: linear-gradient(180deg, rgb(64, 64, 64) 0%, black 100%);
   }
   .navbar__nav-item:not(:last-child) {
     border-bottom: none;
@@ -386,8 +399,11 @@ body {
   flex-grow: 1;
   -o-object-fit: cover;
      object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
   opacity: 0.5;
   transition: 0.5 ease;
+  z-index: 0;
 }
 .about-container__images .about-images:hover {
   transition: all 0.5s ease-out;
@@ -480,7 +496,7 @@ body {
   height: 35px;
   width: 60px;
   background-color: rgb(16, 16, 16);
-  border-color: #00c2ff;
+  border-color: #00759a;
   border-radius: 5px;
   box-shadow: none;
   color: rgb(255, 255, 255);
@@ -527,27 +543,28 @@ body {
   color: #444;
   font-size: 1.8rem;
   font-weight: 400;
+  color: #00c2ff;
   font-family: "Skranji", "Inter", Arial, sans-serif;
 }
-.section-cards__title span {
-  color: #00c2ff;
-}
 .section-cards__subtitle {
-  color: #444;
+  color: rgb(255, 255, 255);
   font-size: 1rem;
   font-weight: bold;
+}
+.section-cards__subtitle span {
+  color: #00c2ff;
 }
 .section-cards__products-search-container {
   border-radius: 10px; /* o el valor de radio que desees */
   border: 1px solid rgb(4, 0, 9); /* opcional, para agregar un borde */
-  padding: 1rem;
-  background-color: cornflowerblue;
+  padding: 0.5rem;
+  background-color: #4b4b4b;
   width: 90%;
   margin: auto;
-  color: rgb(16, 16, 16);
+  color: rgb(255, 255, 255);
 }
 .section-cards__category {
-  margin: 0.5rem;
+  margin: 0.75rem;
   text-align: center;
   font-weight: 400;
   border-bottom: 1px solid #00c2ff;
@@ -563,13 +580,19 @@ body {
   width: 18rem;
 }
 .product-search__btn {
-  margin-top: 0.1rem;
-  height: 25px;
+  height: 35px;
   width: 60px;
-  background-color: red;
-  border-color: rgb(192, 192, 192);
+  background-color: rgb(16, 16, 16);
+  border-color: #00759a;
   border-radius: 5px;
   box-shadow: none;
+  color: rgb(255, 255, 255);
+  text-shadow: 0px 0px 5px rgb(0, 194, 255);
+}
+.product-search__btn:hover {
+  background-color: #00c2ff;
+  border-color: rgb(255, 255, 255);
+  color: black;
 }
 
 @media screen and (min-width: 600px) {
@@ -579,29 +602,32 @@ body {
 }
 @media screen and (min-width: 1000px) {
   .section-cards__header {
-    display: flex;
     margin: 0 1rem;
   }
   .section-cards__title-container {
-    width: 250%;
+    width: 90%;
+    margin: auto;
+  }
+  .section-cards__title {
+    font-size: 5rem;
   }
   .section-cards__subtitle {
     margin-top: 0.5rem;
   }
   .section-cards__products-search-container {
-    width: 50rem;
-    height: 5.5rem;
+    margin-top: 1rem;
+    width: 90%;
+    height: 4rem;
     font-size: 0.75rem;
     font-weight: bold;
   }
   .product-search {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
   }
   .product-search__input {
-    width: 10rem;
-    margin: 5px;
+    width: 80%;
   }
 }
 .title {
