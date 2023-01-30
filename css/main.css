@@ -576,6 +576,7 @@ body {
 }
 .section-cards__category {
   margin: 0.75rem;
+  padding-bottom: 0.5rem;
   text-align: center;
   font-weight: 400;
   border-bottom: 1px solid #00c2ff;
