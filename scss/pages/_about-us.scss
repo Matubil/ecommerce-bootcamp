@@ -27,17 +27,16 @@
             object-fit: cover;
             opacity: .5;
             transition: .5 ease;
-        }
-
-        .about-images:hover {
-            cursor: crosshair;
-            width: 150px;
-            opacity: 1;
-            filter: contrast(120%);
+            &:hover {
+                transition: all .5s ease-out;
+                // cursor:pointer;
+                width: 150px;
+                opacity: 1;
+                filter: contrast(120%);
+            }
         }
     }
 }
-
 
 @media screen and (min-width: 600px) {
     .about-container {
@@ -55,8 +54,8 @@
             }
 
             .about-images:hover {
-                cursor: crosshair;
-                width: 250px;
+                // cursor: crosshair;
+                width: 200px;
                 opacity: 1;
                 filter: contrast(120%);
             }

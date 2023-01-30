@@ -390,7 +390,7 @@ body {
   transition: 0.5 ease;
 }
 .about-container__images .about-images:hover {
-  cursor: crosshair;
+  transition: all 0.5s ease-out;
   width: 150px;
   opacity: 1;
   filter: contrast(120%);
@@ -411,8 +411,7 @@ body {
     transition: 0.5 ease;
   }
   .about-container__images .about-images:hover {
-    cursor: crosshair;
-    width: 250px;
+    width: 200px;
     opacity: 1;
     filter: contrast(120%);
   }
