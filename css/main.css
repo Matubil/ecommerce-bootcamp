@@ -375,6 +375,9 @@ body {
 .footer__company-name {
   font-family: "Skranji", "Inter", Arial, sans-serif;
 }
+.footer__copyright {
+  color: rgb(255, 255, 255);
+}
 
 @media screen and (min-width: 600px) {
   .footer {
