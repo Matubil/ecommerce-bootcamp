@@ -37,6 +37,7 @@ body {
   background-color: #222222;
   display: flex;
   flex-direction: column;
+  height: 800px;
 }
 .card:hover {
   box-shadow: 0px 0px 14px 8px rgba(0, 195, 255, 0.75);
@@ -51,24 +52,32 @@ body {
   border-radius: 10px 10px 0 0;
   width: 100%;
   height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
+  -o-object-fit: contain;
+     object-fit: contain;
+  background-color: rgb(255, 255, 255);
 }
 .card__body {
   flex-grow: 1;
-  padding: 1rem;
+  padding: 0.75rem;
   display: flex;
   flex-direction: column;
+  overflow: hidden;
 }
 .card__title {
   padding-bottom: 0.5rem;
   font-weight: 500;
   font-size: 1.5rem;
   border-bottom: 2px solid #00c2ff;
+  height: 86px;
+  text-align: center;
 }
 .card__description {
   padding: 1.5rem 0 2rem;
   flex-grow: 1;
+  overflow: auto;
+}
+.card__description::-webkit-scrollbar {
+  background-image: none;
 }
 .card__price {
   font-weight: 500;
@@ -566,8 +575,8 @@ body {
   color: #00c2ff;
 }
 .section-cards__products-search-container {
-  border-radius: 10px; /* o el valor de radio que desees */
-  border: 1px solid rgb(4, 0, 9); /* opcional, para agregar un borde */
+  border-radius: 10px;
+  border: 1px solid rgb(4, 0, 9);
   padding: 0.5rem;
   background-color: #4b4b4b;
   width: 90%;
@@ -583,7 +592,7 @@ body {
 }
 .section-cards .cards-container {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
 }
 
 .product-search__input {
@@ -640,7 +649,7 @@ body {
     margin-top: 0.5rem;
   }
   .section-cards .cards-container {
-    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
   }
   .product-search {
     display: flex;
