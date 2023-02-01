@@ -393,6 +393,7 @@ body {
   }
 }
 .main {
+  height: 80vh;
   margin-top: 50px;
   padding: 1.5rem 0;
   background-color: black;
