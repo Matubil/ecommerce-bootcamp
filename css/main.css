@@ -18,7 +18,9 @@ html {
 }
 
 body {
-  height: 100vh;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 @media screen and (min-width: 600px) {
@@ -393,7 +395,7 @@ body {
   }
 }
 .main {
-  height: 80vh;
+  flex-grow: 1;
   margin-top: 50px;
   padding: 1.5rem 0;
   background-color: black;
