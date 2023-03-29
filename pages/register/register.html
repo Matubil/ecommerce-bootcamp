@@ -76,7 +76,7 @@
     
                 <div class="password-container form-container">
                     <label class="password-container__label" for="password1">Contraseña</label>
-                    <input class="password-container__input input" type="password" name="password1" id="password1" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$" required>
+                    <input class="password-container__input input" type="password" name="password1" id="password1" required>
                 </div>
     
                 <div class="reply-password-container form-container">
@@ -351,13 +351,13 @@
     
                 <label class="form-container" for="">Sexo</label>
                 <div class="sex-container form-container">
-                    <input type="radio" class="sex-container__item" name="sex" id="female" required>
+                    <input type="radio" class="sex-container__item" name="sex" id="female"  value="1" required>
                     <label class="sex-container__label" for="female">Femenino</label>
                     
-                    <input type="radio" class="sex-container__item" name="sex" id="male">
+                    <input type="radio" class="sex-container__item" name="sex" id="male" value="2" >
                     <label class="sex-container__label" for="male">Masculino</label>
                     
-                    <input type="radio" class="sex-container__item" name="sex" id="other">
+                    <input type="radio" class="sex-container__item" name="sex" id="other" value="3" >
                     <label class="sex-container__label" for="other">Otro</label>
                 </div>
     
@@ -365,7 +365,7 @@
                     <input class="therms-container__input" type="checkbox" name="checkbox" id="therms" required>
                     <label class="therms-container__label" for="therms">Acepto los términos y condiciones</label>
                 </div>
-                <input class="register__button" value="Enviar" type="submit">
+                <button id="registerSubmit" type="submit" class="register__button">Enviar</button>
             </form>
         </section>
     </main>
@@ -440,5 +440,6 @@
         </div>
     </footer>
 
+    <script src="/js/register.js"></script>
 </body>
 </html>
