@@ -139,13 +139,18 @@ body {
   bottom: 15px;
   left: 50%;
   transform: translateX(-50%);
-  background-color: green;
-  padding: 2rem;
+  background-color: #00c2ff;
+  padding: 2rem 3rem;
   font-size: 1.25rem;
   color: white;
   text-align: center;
-  transition: visibility 0.5s ease-in-out, opacity 0.5s linear;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility linear 0.5s, opacity 0.5s linear;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+}
+.alert-dialog.show {
+  visibility: visible;
   opacity: 1;
 }
 

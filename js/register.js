@@ -116,6 +116,8 @@ function showAlert(text, type){
     const alertDialog = document.createElement('div')
     // Añade una clase
     alertDialog.classList.add('alert-dialog')
+    alertDialog.innerText = text;
+    document.body.appendChild(alertDialog);
     if(type === 'error'){
         alertDialog.style.backgroundColor= 'red'
     }
@@ -129,10 +131,29 @@ function showAlert(text, type){
     document.querySelector('body').appendChild(alertDialog)
 
     
+    setTimeout(() => alertDialog.classList.add('show'), 10)
     setTimeout(()=>{      
+        alertDialog.classList.remove('show');
 
         //alertDialog.classList.add('hidden')
-        alertDialog.remove() //Lo que hacemos es eliminar el cartel del HTML porque lo que va a ir haciendo es acumular varias lineas de codigo innecesariamente por cada carga
-
+       
+        setTimeout(() => {
+            alertDialog.remove() //Lo que hacemos es eliminar el cartel del HTML porque lo que va a ir haciendo es acumular varias lineas de codigo innecesariamente por cada carga
+        }, 1000)
+        // window.location.href = '/pages/login/login.html'     
     }, 3000)
 }
+
+// Funciones con parámetros nombrados
+function customFont({ color, size, weight }) {
+    const divTexto = document.createElement('p');
+    divTexto.innerText = `Un texto a modificar`
+
+    divTexto.style.color = color || '#DDF40A';
+    divTexto.style.fontSize = size || '16px';
+    divTexto.style.fontWeight = weight || 500;
+
+    document.body.appendChild(divTexto);
+}
+
+customFont({ weight: 800 });
