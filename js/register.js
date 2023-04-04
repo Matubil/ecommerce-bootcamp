@@ -3,6 +3,7 @@ const registerForm = document.querySelector('#register');
 console.log(registerForm)
     //a- Obtener boton de submit
 const registerBtn = document.getElementById('registerSubmit');
+
 //2- Vamos a escuchar el evento directamente en JS
 registerForm.addEventListener('submit', (event)=>{
     console.log('Submit event')
@@ -19,15 +20,16 @@ registerForm.addEventListener('submit', (event)=>{
     }
     
     //c- Verificar si hay en el localStorage algun usario guardado ya con ese mail
-        // a- Obtener los usuarios guardados
+        // i- Obtener los usuarios guardados
         const users = JSON.parse(localStorage.getItem('users')) || []; //Le ponemos [] ya que si no encuentra nada, lo inicializamos en un vector vacio
         
         const userExist = checkIfUserExist(users, el.email.value)
         
-        // c-  3 versiones: 
+        // ii-  3 versiones: 
         // existe: retorno y muestro un alert
-        if(userExist){ //creo que lo mejor seria borrar la constante y directamente llamar a la funcion dentro del if
-            return
+        if(userExist){ //creo que lo mejor seria borrar la constante y directamente llamar a la funcion dentro del if     
+            showAlert(`El mail ya se encuentra registrado`, 'error');
+            return;
         }
 
         // no existe: sigo con mi codigo normalmente
@@ -46,6 +48,7 @@ registerForm.addEventListener('submit', (event)=>{
 
     //f- Guardarlo en el localStorage
     localStorage.setItem('users', JSON.stringify(users)) //users ahora tiene un usuario mas
+
 
     //g- Limpiamos el formulario, o podemos llevar al usuario a la pagina de login
         //I- reseteamos nuestro formulario, comunmente es para productos    
@@ -80,7 +83,7 @@ function checkIfUserExist(users, emailToSearch){
 
         // *============ Solucion 2 y la mejor
         /* tambien se puede escribir asi, ya que solamente es una linea y como tiene que devolver false o true es buenisima esta forma de escribirlo
-        const userExist2 = users.find(user => { return user.email === el.email.value})*/
+        const userExist2 = users.find(user => return user.email === el.email.value), ademas lo que podes hacer es prescindir de las llaves*/
         const userExist = users.find(user => {
 
             if(user.email === emailToSearch){
@@ -89,8 +92,8 @@ function checkIfUserExist(users, emailToSearch){
             return false; //no es necesario poner esta linea ya que si no lo ponemos, va a retornar undefined y esto es = a false
         })
 
-        if(userExist){
-            console.warn(`El usuario ya existe`);
+        if(userExist){ //!--MINUTO 42
+            console.warn(`El usuario ya existe`)
             return true
         }
 
@@ -107,8 +110,10 @@ function checkIfUserExist(users, emailToSearch){
         // }
 
 }
+// function showAlert(text, type = 'sucess' ){
 
-function showAlert(text, type){
+function showAlert(text, type = 'sucess'){ //se le pone sucess, ya que al ingresar de por si el valor, si no mandas ningun type en este caso, siempre va a tomar un valor por defecto, entonces podes mandar el parametro text solamente, que no va a afectar en nada, ahora si queremos cambiar eso, cuando queramos enviar otro tipo de type seria asi:  showAlert(`El password no coincide`, 'warning')
+    //!-- BORRAR DENTRO DEL registerForm.addEventListener('submit', (event)=>{ LA LINEA DE SUCESS QUE LE MANDAMOS COMO PARAMETRO, QUE ESTA AL DOPE, YA QUE POR LO QUE ESTAMOS LEYENDO ACA ARRIBA NO SERIA NECESARIO MANDARLO
     
     // * VAMOS A HACER NUESTRO ALERT CUSTOM
 
@@ -117,7 +122,9 @@ function showAlert(text, type){
     // Añade una clase
     alertDialog.classList.add('alert-dialog')
     alertDialog.innerText = text;
+
     document.body.appendChild(alertDialog);
+
     if(type === 'error'){
         alertDialog.style.backgroundColor= 'red'
     }
@@ -130,30 +137,17 @@ function showAlert(text, type){
 
     document.querySelector('body').appendChild(alertDialog)
 
-    
+    //Para demorar su aparicion luego de haberlo creado lineas anterior con document CreateElement
     setTimeout(() => alertDialog.classList.add('show'), 10)
+    
     setTimeout(()=>{      
-        alertDialog.classList.remove('show');
+        alertDialog.classList.remove('show'); //para lo que se pone esto, es que al remover el cartel y que se deje de mostrar, a los mil milisegundos despues, va a borrar el item
 
         //alertDialog.classList.add('hidden')
-       
-        setTimeout(() => {
+
+        setTimeout(() => { //este tambien sirve para que salga o desaparezca sutilmente, y no de una
             alertDialog.remove() //Lo que hacemos es eliminar el cartel del HTML porque lo que va a ir haciendo es acumular varias lineas de codigo innecesariamente por cada carga
         }, 1000)
         // window.location.href = '/pages/login/login.html'     
     }, 3000)
 }
-
-// Funciones con parámetros nombrados
-function customFont({ color, size, weight }) {
-    const divTexto = document.createElement('p');
-    divTexto.innerText = `Un texto a modificar`
-
-    divTexto.style.color = color || '#DDF40A';
-    divTexto.style.fontSize = size || '16px';
-    divTexto.style.fontWeight = weight || 500;
-
-    document.body.appendChild(divTexto);
-}
-
-customFont({ weight: 800 });
