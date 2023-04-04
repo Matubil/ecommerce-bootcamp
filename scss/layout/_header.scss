@@ -1,7 +1,8 @@
 .header{    
-    position: fixed; //para que se quede fijo el header
-    width: 100%; //se le da 100% ya que al decirle que este fijo ocupa solo lo que ocupa sus elementos
-    top: 0;
+    position: fixed;
+    width: 100%; 
+    top: 0;    
+    z-index: 1;
 }
 .navbar{
     height: 60px;
@@ -9,21 +10,23 @@
     display: flex;
     align-items: center;
     position: relative;
+
     // TODO: CENTER Navbar registro, inicio, etc
     &__logo{
         height: 55px;
         padding-right: 0.2rem;
+        margin-left: 0.5rem;
     }
     &__menu-label{
         color: $color-text-light;
-        // margin-left: auto;
         height: 42px;
-        background-color: cyan;   //fondo del menu hamburguesa
+        background-color: $color-bg-primary;  
         width: 42px;
         margin-right: 4px;
         display: flex;
         align-items: center;
         justify-content: center;
+        border-radius: 20px;
     }
 
     &__menu-btn{
@@ -36,7 +39,7 @@
 
     &__menu-btn:checked ~ &__nav-links-container{
         //height: auto;
-        height: calc(100vh - 50px); /*este calculo es para que se despliegue todo el menu*/
+        height: calc(100vh - 50px); 
     }
 
 
@@ -48,7 +51,7 @@
         position: relative;
 
         &::after, &::before{
-            content: "";    //hace esto para crear una linea para el menu
+            content: ""; 
             height: 2px;
             background-color: $color-text-light;
             position: absolute;
@@ -56,15 +59,14 @@
             transition: all .2s ease-out;
         }
         &::after{
-            top: 5px;   //crea una encima
+            top: 5px;  
         }
         &::before{
-            top: -5px;  //otra debajo
+            top: -5px;  
         }
     }
     
     &__menu-btn:checked ~ &__menu-label &__menu-icon{
-        // background-color: $color-bg-primary;    //esto asi me pinta la linea del medio de verde
         background: transparent;
         &::after{
             transform: rotate(45deg);
@@ -80,21 +82,20 @@
         list-style: none;
         position: absolute;
         top: 60px;
-        background-color: red;
+        background-color: rgb(47, 47, 47);
         width: 100%;
-        /*se puede hacer con una transicion*/
         height: 0;
         overflow: hidden;
         transition: all .3s ease-out;
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: center; //creo que lo mejor va a ser ponerle center, queda mas bueno, aunque se puede probar con space-evenly u otros
+        justify-content: center; 
+        text-shadow: 0px 0px 4px rgba(0,194,255,1);
     }
 
     &__nav-item{
         padding: 1.25rem 1rem;
-        // background-color: blue;
 
         &:not(:last-child){            
             border-bottom: 1px solid rgb(156, 156, 156);
@@ -102,13 +103,16 @@
     }
     &__nav-link{
         color: $color-text-light;
+        &:hover{
+            color: $color-bg-primary;
+        }
     }
 }
 
-.user-navbar{   //ya que es casi como un bloque no es necesario seguirlo poniendo dentro de otro bloque, entonces lo mas conveniente es declararlo afuera, ya que va a tener bastantes cosas dentro
+.user-navbar{  
 
     margin-left: auto;
-    color: white;
+    color: $color-text-light;
     display: flex;
     gap: .5rem;
     align-items: center;
@@ -117,7 +121,7 @@
         width: 40px;
     }
     &__cart-icon-container{
-        color: white;
+        color: $color-text-light;
         font-size: 1.5rem;
     }
 }
@@ -125,7 +129,7 @@
 @media screen and (min-width: 640px) and (max-width: 1024px) {
     .navbar{
         position: static;
-        height: 50px;
+        height: 60px;
         &__menu-label, &__menu-btn{
             display: none;
         }    
@@ -133,12 +137,10 @@
             position: static;
             flex-direction: row;
             height: 100%; 
-            width: 408px;
             background-color: transparent;
         }
         &__nav-item{
             padding: 1.25rem 0.5rem;
-            background: linear-gradient(180deg, rgb(64, 64, 64) 0%, black 100%);
             &:not(:last-child){            
                 border-bottom: none;
             }
@@ -154,18 +156,19 @@
             border-right: 0.2rem solid gray  ;
             border-bottom: transparent;
             &:hover{                       
+                color: $color-bg-primary;                
                 transition: border 0.5s ease;          
-                border-left: 0.2rem solid cyan  ;
-                border-right: 0.2rem solid cyan  ;
+                border-left: 0.2rem solid $color-bg-primary  ;
+                border-right: 0.2rem solid $color-bg-primary  ;
             }
         }
 
     }
     .user-navbar{
-        order: 3; //para ponerlo en la tercera posicion
+        order: 3; 
         &__cart-icon-container:hover{
             transition: color 1s ease;
-            color: cyan;
+            color: $color-bg-primary;
         }
     }
 }
@@ -183,12 +186,10 @@
             position: static;
             flex-direction: row;
             height: 100%; 
-            width: 550px;
             background-color: transparent;
         }
         &__nav-item{
             padding: 1.25rem 0.75rem;
-            background: linear-gradient(180deg, rgb(64, 64, 64) 0%, black 100%);
             &:not(:last-child){            
                 border-bottom: none;
             }
@@ -204,18 +205,19 @@
             border-right: 0.2rem solid gray  ;
             border-bottom: transparent;
             &:hover{                       
+                color: $color-bg-primary;
                 transition: border 0.5s ease;          
-                border-left: 0.2rem solid cyan  ;
-                border-right: 0.2rem solid cyan  ;
+                border-left: 0.2rem solid $color-bg-primary  ;
+                border-right: 0.2rem solid $color-bg-primary  ;
             }
         }
 
     }
     .user-navbar{
-        order: 3; //para ponerlo en la tercera posicion
+        order: 3; 
         &__cart-icon-container:hover{
             transition: color 0.5s ease;
-            color: cyan;
+            color: $color-bg-primary;
         }
     }
 }

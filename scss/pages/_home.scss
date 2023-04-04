@@ -1,33 +1,135 @@
-.section-cards{
-    &__header{
+.section-cards {
+    &__header {
         text-transform: uppercase;
-        font-size: 1.5rem;
         text-align: center;
     }
-    &__subtitle{
+
+    &__title {
         color: #444;
+        font-size: 3rem;
+        font-weight: 400;
+        color: $color-bg-primary;
+        font-family: 'Skranji', 'Inter', Arial, sans-serif;
+
+    }
+
+    &__subtitle {
+        color: $color-text-light;
         font-size: 1rem;
+        font-weight: bold;
+        padding-bottom: 1rem;
     }
-    &__products-search-container{
-        padding: 1rem;
-        background-color: cornflowerblue;
+
+    &__subtitle span {
+        color: $color-bg-primary;
     }
-    .cards-container{
+
+    &__products-search-container {
+        border-radius: 10px;
+        border: 1px solid rgb(4, 0, 9);
+        padding: 0.5rem;
+        background-color: #4b4b4b;
+        width: 90%;
+        margin: auto;
+        color: $color-text-light;
+
+    }
+
+    &__category {
+        margin: 0.75rem;
+        padding-bottom: 0.5rem;
+        text-align: center;
+        font-weight: 400;
+        border-bottom: 1px solid $color-bg-primary;
+    }
+
+    .cards-container {
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));     //auto fit quiere decir que repita a medida que pueda llenar que meta lo que pueda en 200 px o sino que ponga 1fr que ocupe todo eso y hasta un min de 200px
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); //auto fit quiere decir que repita a medida que pueda llenar que meta lo que pueda en 200 px o sino que ponga 1fr que ocupe todo eso y hasta un min de 200px
     }
 }
 
+.product-search {
+    &__input {
+        padding: 0.5rem;
+        border-radius: 10px;
+        height: 25px;
+        width: 18rem;
+    }
+
+    &__btn {
+        height: 35px;
+        width: 60px;
+        background-color: $color-bg-secondary;
+        border-color: #00759a;
+        border-radius: 5px;
+        box-shadow: none;
+        color: $color-text-light;
+        text-shadow: 0px 0px 5px rgba(0, 194, 255, 1);
+
+        &:hover {
+            background-color: $color-bg-primary;
+            border-color: rgb(255, 255, 255);
+            color: black;
+        }
+    }
+}
+
+
 @media screen and (min-width: 600px) {
-    // .cards-container{
-    //     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); //le digo que muestre 2 elementos cuando entre en modo tablet
-    // }
+    .section-cards {
+        &__title-container {
+            margin: 0 1rem;
+        }
+
+        &__title {
+            font-size: 3.5rem;
+        }
+
+        &__products-search-container {
+            font-size: 0.9rem;
+            font-weight: bold;
+            width: 90%;
+            height: 4rem;
+        }
+
+        .cards-container {
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+        }
+    }
 }
 
 @media screen and (min-width: 1000px) {
-    .section-cards{
-        &__header{
-            display: flex;
+    .section-cards {
+        &__header {
+            margin: 0 1rem;
+        }
+
+        &__title-container {
+            width: 90%;
+            margin: auto;
+        }
+
+        &__title {
+            font-size: 5rem;
+        }
+
+        &__subtitle {
+            margin-top: 0.5rem;
+        }
+
+        .cards-container {
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+        }
+    }
+
+    .product-search {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+
+        &__input {
+            width: 80%;
         }
     }
 }

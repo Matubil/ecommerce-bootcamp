@@ -2,9 +2,9 @@
 .title{
     font-family: Arial, Helvetica, sans-serif;
     text-align: center;
-    border-bottom: 1px solid #6a9347;
+    border-bottom: 1px solid $color-bg-primary;
     font-weight: 100;
-    color: black;
+    color: $color-text-light;
     padding: 1rem;
 }
 
@@ -13,6 +13,7 @@
 .section{
     display: flex;
     justify-content: center;
+    background: $color-bg-main;
 }
 
 
@@ -21,13 +22,31 @@
     padding: 1.5rem;
     background-color: #222222;
     font-family: Arial, Helvetica, sans-serif;
-    box-shadow: 0px 0px 14px 8px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 14px 8px rgba(0, 0, 0, 0.75);
+    &:hover{
+        text-shadow: 0px 0px 5px rgba(0,194,255,1);
+    }
+    &__button{
+        height: 35px;
+        width: 60px;
+        background-color: $color-bg-secondary;
+        border-color: $color-bg-primary;
+        border-radius: 5px;
+        box-shadow: none;
+        color: $color-text-light;
+        text-shadow: 0px 0px 5px rgba(0,194,255,1);
+        &:hover{ 
+            background-color: $color-bg-primary;
+            border-color: rgb(255, 255, 255);
+            color: black;
+        }
+    }
 }
 
 .form-container{
     display: block;
     width: 100%;
-    color: white;
+    color: $color-bg-primary;
 }
 
 .input {
@@ -35,7 +54,7 @@
     padding: 6px;
     border-radius: 4px;
     margin-bottom: 1rem;
-    color: #1844d5;
+    color: #0029af;
     padding-bottom: .1rem;
 }
 
@@ -56,22 +75,14 @@
 }
 
 .sex-container__label{
-padding: .5rem;
-}
-
-.register__button{
-    padding: .5rem .9rem .5rem .9rem;
-    background-color: #1633b3;
-    color: white;
-    border: none;
-    border-radius: 4px;
+    padding: .5rem;
 }
 
 
 footer{
     font-family: Arial, Helvetica, sans-serif;
     background-color: black;
-    color: white;
+    color: $color-bg-primary;
     padding: 3rem;
     text-align: center;
     width: 100%;

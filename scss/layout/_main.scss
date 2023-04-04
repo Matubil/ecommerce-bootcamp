@@ -1,6 +1,8 @@
-//aca van los estilos del main de nuestra pagina
 .main{
+    flex-grow: 1;
     margin-top: 50px;
     padding: 1.5rem 0;
-    background-color: aliceblue;
+    background-color: black;
+    color:$color-text-light;
 }
+
