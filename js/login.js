@@ -21,7 +21,7 @@ loginForm.addEventListener('submit', (event)=> {
         })
 
         if(!user || user.password !== password.value){
-            alert('Los datos ingresadors no son correctos')
+            showAlert('Login incorrecto', 'error')
             return;
         }
         
@@ -37,7 +37,13 @@ loginForm.addEventListener('submit', (event)=> {
 
 
         localStorage.setItem('currentUser', JSON.stringify(user)) //tambien se puede poner fuera del if, ya que el if anterior tenia la validacion de la contraseña tambien
-        alert('Login correcto')
+
+        //TODO: insertar alerta custom
+        showAlert('Login Correcto, te redireccionaremos en unos instantes...')
+
+        setTimeout(()=>{
+            window.location.href = '/'; //va a la home, si quisiesemos ir a una de las páginas en especial ahi si elegimos la ruta que queremos 
+        },1500)
 });
 // 3- Vamos a guardar en el localStorage un registro que va a ser currentUser - user
 
