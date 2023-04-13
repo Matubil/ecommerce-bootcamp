@@ -37,6 +37,7 @@
     </div>
 </article> */
 
+const user = JSON.parse(localStorage.getItem('currentUser'))
 const cardContainer = document.querySelector('#card-container')
 
 const productsLS = JSON.parse(localStorage.getItem('products')) || []; //products del local storage significa
@@ -71,7 +72,8 @@ function renderizarProductos(products){
                                 </div>
                             </div>
                             <div class="card__footer">
-                                <div class="card__btn-container">
+                                <div class="card__btn-container"> ` //<button class="card_btn-container" onclick="addToOrder(${index}) ${user ? "" : "disabled"} ver despues si lo agregamos asi o si lo podemos agregar de otra forma, seguramente queda mejor que los 2 sean botones
+                                `
                                     <a class="card__btn" href="#">
                                         Comprar
                                     </a>

@@ -22,12 +22,18 @@
                 <img class="navbar__logo" src="/assets/images/logos/viking logo cabeza.png" alt="Logo del ecommerce">
             </a>
             <div class="user-navbar">
-                <div class="user-navbar__cart-icon-container">
-                    <i class="fa-solid fa-cart-shopping"></i>
-                </div>
+                <a href="/pages/order/order.html"> <!-- !Poner los badge, osea le circulito para cuando agreguemos productos-->
+                    <div class="user-navbar__cart-icon-container">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                        <div class="user-navbar__cart-badge" id="card-count">0</div>
+                    </div>
+                </a>
                 <div class="user-navbar__user-avatar-container">                
                     <!-- TODO: add avatar of person or item-->
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Default_pfp.svg/100px-Default_pfp.svg.png" class="user-navbar__user-avatar" alt="Imagen de usuario">
+
+                    
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Default_pfp.svg/100px-Default_pfp.svg.png" class="user-navbar__user-avatar" alt="Imagen de usuario">
+                
                 </div>
             </div>
 
@@ -637,6 +643,7 @@
 
     <script src="/js/index.js"></script>
     <script src="/js/header.js"></script>
+    <script src="/js/orders.js"></script>
 </body>
 
 </html>

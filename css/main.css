@@ -271,6 +271,20 @@ body {
 .user-navbar__cart-icon-container {
   color: rgb(255, 255, 255);
   font-size: 1.5rem;
+  margin-right: 0.5rem;
+  position: relative;
+}
+.user-navbar__cart-badge {
+  position: absolute;
+  top: -0.5rem;
+  right: -0.5rem;
+  height: 0.75rem;
+  width: 0.75rem;
+  border-radius: 50%;
+  background-color: red;
+  font-size: 0.5rem;
+  color: white;
+  text-align: center;
 }
 
 @media screen and (min-width: 640px) and (max-width: 1024px) {

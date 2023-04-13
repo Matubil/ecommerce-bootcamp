@@ -117,12 +117,27 @@
     gap: .5rem;
     align-items: center;
     padding: 0 1rem;
+    
     &__user-avatar{
         width: 40px;
     }
     &__cart-icon-container{
         color: $color-text-light;
         font-size: 1.5rem;
+        margin-right: .5rem;
+        position: relative;
+    }
+    &__cart-badge{
+        position: absolute;
+        top: -.5rem;
+        right: -.5rem;
+        height: .75rem;
+        width: .75rem;
+        border-radius: 50%;
+        background-color: red;
+        font-size: .5rem;
+        color: white;
+        text-align: center;
     }
 }
 

@@ -68,6 +68,7 @@ function logout(){
     }
 
     localStorage.removeItem('currentUser');
+    localStorage.removeItem('order')
     renderHeaderLinks();
 }
 
