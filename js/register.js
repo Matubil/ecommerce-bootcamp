@@ -40,7 +40,8 @@ registerForm.addEventListener('submit', (event)=>{
         age: el.age.value,
         password: el.password1.value,
         email:  el.email.value,
-        gender: el.sex.value //aca yo lo llamo por id sex ya que gender no me funciona porque el id deberia de ser gender, que eso lo tengo que cambiar
+        gender: el.sex.value,//aca yo lo llamo por id sex ya que gender no me funciona porque el id deberia de ser gender, que eso lo tengo que cambiar
+        role: 'USER_ROLE'
     }
 
     //e- Insertar en mi array de usuarios el nuevo user (lista de usuarios)
