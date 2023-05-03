@@ -71,9 +71,13 @@ body {
   font-weight: 500;
   font-size: 1.5rem;
   border-bottom: 2px solid #00c2ff;
-  height: 65px;
+  height: 62px;
   text-align: center;
-  overflow: auto;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .card__title::-webkit-scrollbar {
   background-image: none;
@@ -301,7 +305,7 @@ body {
   text-align: center;
 }
 
-@media screen and (min-width: 640px) and (max-width: 1024px) {
+@media screen and (min-width: 825px) and (max-width: 1024px) {
   .navbar {
     position: static;
     height: 60px;
@@ -540,6 +544,179 @@ body {
     filter: contrast(120%);
   }
 }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Helvetica, sans-serif;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.product-form {
+  padding: 2rem;
+  border: 3px solid salmon;
+}
+
+.product-form > div {
+  margin-bottom: 1rem;
+}
+
+.submit-btn {
+  padding: 0.5rem 1rem;
+  border: 1px solid greenyellow;
+  color: white;
+  background-color: green;
+}
+
+.edit-btn {
+  background-color: dodgerblue;
+  border-color: skyblue;
+}
+
+.table-container {
+  width: 100vw;
+  overflow-x: scroll;
+}
+
+.table-product {
+  border-collapse: collapse;
+}
+
+.table-product thead tr {
+  background-color: dodgerblue;
+  color: white;
+}
+
+.table-product th, .table-product td {
+  border: 1px solid skyblue;
+  font-size: 0.75rem;
+}
+
+.table-product tr td:not(:first-child) {
+  padding: 0.5rem;
+}
+
+.table-product tbody tr:nth-child(odd) {
+  background-color: rgba(252, 0, 0, 0.464);
+}
+
+.table-product tr th {
+  padding: 0.5rem;
+}
+
+.product__img {
+  width: 50px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  height: 50px;
+  border-radius: 50%;
+  display: block;
+  margin: 0 auto;
+}
+
+.product__desc {
+  width: 30%;
+}
+
+.product__price {
+  font-weight: bold;
+}
+
+.product__info, .product__actions {
+  vertical-align: center;
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+.product__info {
+  font-size: 1.25rem !important;
+}
+
+.product__info-icon.disabled {
+  filter: grayscale(1);
+  opacity: 0.5;
+  pointer-events: none; /*no escuchas ninguno de los eventos, de hover, click, etc*/
+}
+
+.product__action-btn {
+  background-color: rgb(254, 33, 33);
+  border: none;
+  padding: 0.25rem;
+  border-radius: 2px;
+  color: white;
+}
+
+.product__action-btn:hover {
+  background-color: rgb(199, 1, 1);
+}
+
+.product__action-btn {
+  background-color: rgb(254, 33, 33);
+  border: none;
+  padding: 0.25rem;
+  border-radius: 2px;
+  color: white;
+}
+
+.product__action-btn:hover {
+  background-color: rgb(199, 1, 1);
+}
+
+/* .product__action-btn--edit { //asi es como deberia de quedar para sass
+    background-color: rgb(73, 162, 250); 
+}
+.product__action-btn--edit:hover {
+    background-color: rgb(8, 131, 255); 
+}
+
+.product__action-btn--favorite {
+    background-color: rgb(253, 247, 230); 
+}
+.product__action-btn--favorite:hover {
+    background-color: rgb(247, 217, 155); 
+} */
+.btn-edit {
+  background-color: rgb(73, 162, 250);
+}
+
+.btn-edit:hover {
+  background-color: rgb(8, 131, 255);
+}
+
+.btn-favorite {
+  background-color: rgb(253, 247, 230);
+}
+
+.btn-favorite.active {
+  background-color: rgb(253, 198, 36);
+}
+
+.btn-favorite:hover {
+  background-color: rgb(247, 217, 155);
+}
+
+@media screen and (min-width: 1000px) {
+  .container {
+    flex-direction: row;
+  }
+  .table-container {
+    overflow-x: auto;
+  }
+}
+/* .red-bg .swal-title{ esto es por si queremos modificar algunas cosas de la ventana que salta
+    color: red
+} 
+
+.swal-modal {
+    background-color: #333;
+}  */
 .contact-container {
   display: flex;
   flex-direction: column;
@@ -646,11 +823,13 @@ body {
 .section-cards__products-search-container {
   border-radius: 10px;
   border: 1px solid rgb(4, 0, 9);
-  padding: 0.5rem;
   background-color: #4b4b4b;
   width: 90%;
   margin: auto;
   color: rgb(255, 255, 255);
+}
+.section-cards__products-count {
+  margin: 0.75rem 0;
 }
 .section-cards__category {
   margin: 1rem;
@@ -664,10 +843,12 @@ body {
 }
 
 .product-search__input {
-  padding: 0.5rem;
+  padding: 1rem;
   border-radius: 10px;
   height: 25px;
   width: 18rem;
+  font-size: 1rem;
+  font-weight: bold;
 }
 .product-search__btn {
   height: 35px;
@@ -697,6 +878,7 @@ body {
     font-weight: bold;
     width: 90%;
     height: 4.5rem;
+    padding: 0.5rem 0 5rem 0;
   }
   .section-cards .cards-container {
     grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));

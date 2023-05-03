@@ -36,9 +36,13 @@
         font-weight: 500;
         font-size: 1.5rem;
         border-bottom: 2px solid $color-bg-primary;
-        height: 65px;
+        height: 62px;
         text-align: center;
-        overflow: auto;  
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
     &__title::-webkit-scrollbar {
         background-image: none;

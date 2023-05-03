@@ -5,11 +5,176 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Product</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+        integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="/css/main.css">
 </head>
 <body>
-    <h1>Admin Product</h1>
-    <p>Donde va a ir la CRUD de productos</p>
+    <header class="header">
+        <nav class="navbar">
+            <a href="/index.html" class="navbar__nav-link">
+                <img class="navbar__logo" src="/assets/images/logos/viking logo cabeza.png" alt="Logo del ecommerce">
+            </a>
+            <div class="user-navbar">
+                <a href="/pages/order-detail/order-detail.html"> <!-- !Poner los badge, osea le circulito para cuando agreguemos productos-->
+                    <div class="user-navbar__cart-icon-container">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                        <div class="user-navbar__cart-badge" id="card-count">0</div>
+                    </div>
+                </a>
+                <div class="user-navbar__user-avatar-container">                
+                    <!-- TODO: add avatar of person or item-->
 
+                    
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Default_pfp.svg/100px-Default_pfp.svg.png" class="user-navbar__user-avatar" alt="Imagen de usuario">
+                
+                </div>
+            </div>
+
+            <input type="checkbox" class="navbar__menu-btn" id="menu-btn">
+
+            <label for="menu-btn" class="navbar__menu-label">
+                <span class="navbar__menu-icon"></span>
+            </label>
+
+            <ul class="navbar__nav-links-container" id="navbar-list">
+                <li class="navbar__nav-item">
+                    <a href="/index.html" class="navbar__nav-link">Inicio</a>
+                </li>
+                <li class="navbar__nav-item">
+                    <a href="/pages/contact/contact.html" class="navbar__nav-link">Contacto</a>
+                </li>
+                <li class="navbar__nav-item">
+                    <a href="/pages/about-us/about-us.html" class="navbar__nav-link">Nosotros</a>
+                </li>
+                <li class="navbar__nav-item">
+                    <a href="/pages/register/register.html" class="navbar__nav-link">Registro</a>
+                </li>
+                <li class="navbar__nav-item" id="sign-in">
+                    <a href="/pages/login/login.html" class="navbar__nav-link">Login</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+
+    <main class="main">
+        <h1>Admin Product</h1>
+        <p>Donde va a ir la CRUD de productos</p>
+
+        <h1>Objects - methods</h1>
+        <div class="container">
+            <!-- <form id="add-product" class="product-form" onsubmit="addProduct(event)" data-custom = "My atributo personalizado" data-idx = 0 data-otro ="Valor" > *2 -->
+            <form id="add-product" class="product-form" onsubmit="addProduct(event)"> 
+
+            <!-- <form id="add-product" class="product-form"> *2-->
+                <!--le vamos a mandar el evento porque va a llevar el formulario con lo que tengan cargados los inputs-->
+                <div class="input-box">
+                    <label for="nameLabel">Producto</label>
+                    <input type="text" name="name" id="nameLabel" required>
+                    <!--le colocó value y texto a la descripcion para que cuando tenga que cargar productos, no sea tan tedioso de ir cargando 1 x 1-->
+                </div>
+                <div class="input-box">
+                    <label for="descLabel">Descripcion</label>
+                    <textarea name="description" id="descLabel" rows="5" required></textarea>
+                </div>
+                <div class="input-box">
+                    <label for="priceLabel">Precio</label>
+                    <input type="number" name="price" id="priceLabel" step="0.01" required>
+                </div>
+                <div class="input-box">
+                    <label for="imgLabel">Imagen</label>
+                    <input type="text" name="image" id="imgLabel" required>
+                    <!--Comunmente se usa que el nombre sea igual que el id, pero para que sepamos que no depende el id del nombre, sino que el nombre que los que tienen label es para saber que van vinculados entre ellos-->
+                </div>
+                <button type="submit" class="submit-btn" id="submit-btn">Cargar Producto</button>
+            </form>
+            <div class="table-container">
+                <table class="table-product">
+                    <thead>
+                        <tr>
+                            <th>Imagen</th>
+                            <th>Producto</th>
+                            <th>Descripcion</th>
+                            <th>Precio</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody id="table-body">
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer__column">
+            <ul class="footer__social-media-container">
+                <li class="footer__contact-item">
+                    <a href="https://www.facebook.com/" class="footer__contact-link" target="_blank">
+                        <i class="fa-brands fa-facebook footer__contact-icon
+                        footer__contact-icon--facebook"></i>
+                        Facebook
+                    </a>
+                </li>
+                <li class="footer__contact-item">
+                    <a href="https://www.instagram.com/" class="footer__contact-link" target="_blank">
+                        <i class="fa-brands fa-instagram footer__contact-icon
+                        footer__contact-icon--instagram"></i>
+                        Instagram
+                    </a>
+                </li>
+                <li class="footer__contact-item">
+                    <a href="https://www.linkedin.com/" class="footer__contact-link" target="_blank">
+                        <i class="fa-brands fa-linkedin footer__contact-icon
+                        footer__contact-icon--linkedin"></i>
+                        LinkedIn
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="footer__column">
+            <img src="/assets/images/logos/viking logo cabeza.png" alt="Company Logo" class="footer__logo">
+            <h2 class="footer__company-name">
+                VIKINGS TECHNOLOGY
+            </h2>
+            <p class="footer__copyright">
+                Todos los derechos reservados a Vikings Technology®
+            </p>
+        </div>
+        <div class="footer__column">
+            <ul class="footer__contact-container" target="_blank">
+                <li class="footer__contact-item">
+                    <a href="#" class="footer__contact-link">
+                        <i class="fa-solid fa-square-phone-flip footer__contact-icon"></i>
+                        Telefono
+                    </a>
+                </li>
+                <li class="footer__contact-item">
+                    <a href="/pages/contact/contact.html" class="footer__contact-link" target="_blank">
+                        <i class="fa-solid fa-location-dot footer__contact-icon"></i>
+                        Localizacion
+                    </a>
+                </li>
+                <li class="footer__contact-item">
+                    <a href="#" class="footer__contact-link" target="_blank">
+                        <i class="fa-solid fa-envelope footer__contact-icon"></i>
+                        Email
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </footer>
+
+    <script src="/js/alert.js"></script>
+    <script src="/js/admin-products.js"></script>
+    <script src="/js/header.js"></script>
     <script src="/js/isAdmin.js"></script>
 </body>
 </html>
+
+
+

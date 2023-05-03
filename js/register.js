@@ -64,23 +64,6 @@ registerForm.addEventListener('submit', (event)=>{
 
 
 function checkIfUserExist(users, emailToSearch){
-      // b- Recorrer el array con un forEach, findIndex o find
-        // !============ Solucion 1
-        // let userEmailExist = false;
-        // users.forEach(usr => {
-            
-        //     if(usr.email === el.email.value){
-
-        //         userEmailExist = true;
-
-        //     } 
-
-        // });
-
-        // if(userEmailExist){//de esta manera, una vez despues de recorrer el array preguntariamos por cual de los motivos salio y si es true devuelve que ya existe
-        //     console.warn(`El usuario ya existe`);
-        //     return 
-        // }
 
         // *============ Solucion 2 y la mejor
         /* tambien se puede escribir asi, ya que solamente es una linea y como tiene que devolver false o true es buenisima esta forma de escribirlo
@@ -111,4 +94,4 @@ function checkIfUserExist(users, emailToSearch){
         // }
 
 }
-// function showAlert(text, type = 'sucess' ){
+

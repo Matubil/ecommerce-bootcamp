@@ -1,11 +1,14 @@
+
+
+
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ingresar</title>
+    <title>Registro de Usuario</title>
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
         integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -13,10 +16,9 @@
         integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="/css/main.css">
-
 </head>
+<body class="body">
 
-<body>
     <!-- =================HEADER=================  -->
 
     <header class="header">
@@ -25,7 +27,7 @@
                 <img class="navbar__logo" src="/assets/images/logos/viking logo cabeza.png" alt="Logo del ecommerce">
             </a>
             <div class="user-navbar">
-                <a href="/pages/order-detail/order-detail.html"> <!-- !Poner los badge, osea le circulito para cuando agreguemos productos-->
+                <a href="/pages/order/order.html"> <!-- !Poner los badge, osea le circulito para cuando agreguemos productos-->
                     <div class="user-navbar__cart-icon-container">
                         <i class="fa-solid fa-cart-shopping"></i>
                         <div class="user-navbar__cart-badge" id="card-count">0</div>
@@ -65,35 +67,31 @@
             </ul>
         </nav>
     </header>
-
-
-    <!-- ! SACAR EL HEADER Y TAMBIEN SACAR EL FOOTER-->
-    <!-- ! A LA VEZ DEBERIA DE CAMBIAR EL DIV QUE ENCIERRA AL FORMULARIO DE LOGIN POR EL MISMO DEL DE REGISTER PARA QUE JUNTE LOS 2 MISMOS ESTILOS-->
-
+    
     <!-- =================MAIN=================  -->
 
     <main class="main">
-        <div class="container">
-            <h1>LOGIN</h1>
-            <form class="login-form" id="loginForm">
-                <div class="input-group">
-                    <label for="email">
-                        Email:
-                    </label>
-                    <input type="email" id="email" name="email" value="mat@gmail.com" required>
-                </div>
-                <div class="input-group">
-                    <label for="">
-                        Contraseña
-                    </label>
-                    <input type="text" id="password" name="password" value="mat" required><!--! IMPORTANTE recordar cambiar el type de text a password, y max y min length-->
-                </div>
+        <section class="section-cards">
+    
+            <div class="section-cards__category">
+                <h1 id="title-h1">
+                    TU ORDEN DE COMPRA
+                </h1>
+            </div>
+    
+            <!-- <div id="cart-detail-table" class="row-cart-detail">
+    
+            </div> -->
+    
+            <div class="table-container">
+                <table class="table-product">
+                    <tbody id="cart-detail-table">
 
-                <button type="submit" class="btn">Ingresar</button>
-            </form>
-        </div>
+                    </tbody>
+                </table>
+            </div>
+        </section>
     </main>
-
     <!-- =================WSP LOGO=================  -->
 
     <div class="whatsapp-container">
@@ -166,9 +164,10 @@
     </footer>
 
     <script src="/js/alert.js"></script>
-    <script src="/js/login.js"></script>
+    <script src="/js/general.js"></script>
+    <script src="/js/orders.js"></script>
+    <script src="/js/register.js"></script>
     <script src="/js/header.js"></script>
 
 </body>
-
 </html>

@@ -27,12 +27,14 @@
     &__products-search-container {
         border-radius: 10px;
         border: 1px solid rgb(4, 0, 9);
-        padding: 0.5rem;
         background-color: #4b4b4b;
         width: 90%;
         margin: auto;
         color: $color-text-light;
+    }
 
+    &__products-count{
+        margin: .75rem 0;
     }
 
     &__category {
@@ -50,10 +52,12 @@
 
 .product-search {
     &__input {
-        padding: 0.5rem;
+        padding: 1rem;
         border-radius: 10px;
         height: 25px;
         width: 18rem;
+        font-size: 1rem;
+        font-weight: bold;
     }
 
     &__btn {
@@ -72,6 +76,8 @@
             color: black;
         }
     }
+
+
 }
 
 
@@ -90,6 +96,7 @@
             font-weight: bold;
             width: 90%;
             height: 4.5rem;
+            padding: .5rem 0 5rem 0;
         }
 
         .cards-container {

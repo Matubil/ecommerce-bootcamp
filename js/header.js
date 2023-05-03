@@ -23,9 +23,6 @@ function renderHeaderLinks(){
     }else{        
         const link = createLinkElement('login', 'Login')
         signIn.replaceChildren(link)
-
-        //esto es lo mismo que lo que hace arriba pero insertando todo por js
-        //signIn.innerHTML = '<a href="/pages/login/login.html" class="navbar__nav-link">Login</a>'
     }
 }
 
@@ -50,8 +47,8 @@ function createLinkElement(path, text, type = null){
     //link.setAttribute('target', '_blank')
     link.innerText = text
     
-    //  ESTA SERIA LA MEJOR FORMA DE HACERLO //? SI quisieramos que quede bien seria esta linea para abajo, hasta return type (ejemplo 1)
-    //if(type){ //si ingresa un tipo, va a crear un nuevo elemento en el navbar
+    // //  ESTA SERIA LA MEJOR FORMA DE HACERLO //? SI quisieramos que quede bien seria esta linea para abajo, hasta return type (ejemplo 1)
+    // if(type){ //si ingresa un tipo, va a crear un nuevo elemento en el navbar
     //     li = document.createElement(type)
     //     li.appenChild(link)
     // }
