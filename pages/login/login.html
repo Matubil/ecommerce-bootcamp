@@ -73,23 +73,23 @@
     <!-- =================MAIN=================  -->
 
     <main class="main">
-        <div class="container">
-            <h1>LOGIN</h1>
-            <form class="login-form" id="loginForm">
-                <div class="input-group">
-                    <label for="email">
+        <h1 class="title">LOGIN</h1>
+        <div class="login-form">
+            <form class="login-form-container" id="loginForm">
+                <div class="login-form-container__group input-group-form">
+                    <label class="input-group-form__label" for="email">
                         Email:
                     </label>
-                    <input type="email" id="email" name="email" value="mat@gmail.com" required>
+                    <input class="input-group-form__input"  type="email" id="email" name="email" value="mat@gmail.com" required>
                 </div>
-                <div class="input-group">
-                    <label for="">
+                <div class="login-form-container__group input-group-form">
+                    <label class="input-group-form__label"  for="">
                         Contraseña
                     </label>
-                    <input type="text" id="password" name="password" value="mat" required><!--! IMPORTANTE recordar cambiar el type de text a password, y max y min length-->
+                    <input class="input-group-form__input"  type="text" id="password" name="password" value="mat" required><!--! IMPORTANTE recordar cambiar el type de text a password, y max y min length-->
                 </div>
 
-                <button type="submit" class="btn">Ingresar</button>
+                <button type="submit" class="login-form-container__btn">Ingresar</button>
             </form>
         </div>
     </main>

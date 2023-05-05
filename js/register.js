@@ -1,3 +1,8 @@
+let Users = JSON.parse(localStorage.getItem("users")) || [[{"name":"prueba","age":"","password":"alfabeta","email":"admin@gmail.com","gender":"1","role":"ADMIN_ROLE"}]]; 
+
+localStorage.setItem("users", JSON.stringify(Users))
+
+
 //1- Obtener formulario y almacenarlo en una variable de JS
 const registerForm = document.querySelector('#register');
 console.log(registerForm)

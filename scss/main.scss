@@ -14,10 +14,10 @@
 @import "layout/main";
 
 @import "pages/about-us";
-@import "pages/_admin.product";
+@import "pages/admin-product";
+@import "pages/admin-users";
 @import "pages/contact";
 @import "pages/home";
-//! Importante crear los estilos e importarlos @import "pages/login";
 @import "pages/login";
-
+@import "pages/product-detail";
 @import "pages/register";

@@ -1,33 +1,17 @@
 const params = location.search
 
 console.log(params)
+const paramsUrl = new URLSearchParams(params)
 
-//forma 1 de buscar el id
-//const index = params.split('id=')[1].split('&')[0];
-
-//forma 2 de buscar el id (es el metodo recomendado para obtener queryParams usando URLSearchParams)
-const paramsUrl = new URLSearchParams(params) //lo bueno de usar esto, es que me crea un objeto con todos los parametros que se mandan en la URL
-
-// function getProductIdFromUrl() {
-//     const searchParams = new URLSearchParams(location.search);
-//     return parseInt(searchParams.get('id'));
-// }
-
-
-const paramsEntries = Object.fromEntries(paramsUrl) //aca me forma un objeto con por cada parametro me va a formar un array, donde el primer valor va a ser el nombre del param y el segundo el valor del param
+const paramsEntries = Object.fromEntries(paramsUrl)
 
 console.log(paramsEntries)
 
-const id = paramsEntries['id']; // acceder al valor del parámetro 'id'
-//accedo al id desde la constante donde me trajo cada parametro
+const id = paramsEntries['id']; 
 
 const products = JSON.parse(localStorage.getItem('Products'))
 
 const product = products[id]
-
-// console.log(product.image)
-
-// document.body.innerHTML = `<p>${JSON.stringify(product)}</p><img src=${product.image}>` //Esto lo que me está haciendo, seria imprimir el producto que yo estaba buscando, segun el boton de detalle del producto que yo aprete
                             
 const mainDetail = document.getElementById('main-detail')
 
@@ -36,10 +20,9 @@ function renderizarDetail(){
 
     const detail = `
                     <div class="product-container">
-                        <div class="product-container__img">
-                            <img src="${product.image}" alt="${product.name}">
-                        </div>
-
+                        
+                        <img class="product-container__img" src="${product.image}" alt="${product.name}">
+                        
                         <div class="product-container__section ">
 
                             <div class="product-info-container">
@@ -74,9 +57,9 @@ function renderizarDetail(){
                                     </div>
                                 </div>
                             
-                                <div class="product-function-container__btns product-btns">
-                                    <button class="product-btn__add">Agregar al carrito</button>
-                                    <button class="product-btn__shop">Comprar ahora</button>
+                                <div class="product-function-container__btns product-detail-btn">
+                                    <button class="product-detail-btn__add">Agregar al carrito</button>
+                                    <button class="product-detail-btn__shop">Comprar ahora</button>
                                 </div>
                             </div>                            
                         </div>

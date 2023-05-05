@@ -463,10 +463,6 @@ body {
     padding: 0 15rem;
   }
 }
-.title {
-  margin: 0.5rem;
-}
-
 .about-container__description {
   margin: 1rem;
   text-align: center;
@@ -544,40 +540,55 @@ body {
     filter: contrast(120%);
   }
 }
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: Helvetica, sans-serif;
-}
-
-.container {
+.admin-product-container {
   display: flex;
   flex-direction: column;
 }
 
 .product-form {
   padding: 2rem;
-  border: 3px solid salmon;
+  background-color: #222222;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  color: #00c2ff;
+  font-size: 1.5rem;
+}
+.product-form__btn {
+  font-size: 1.2rem;
+  height: 35px;
+  width: 100%;
+  background-color: rgb(16, 16, 16);
+  border-color: #00c2ff;
+  border-radius: 5px;
+  box-shadow: none;
+  color: rgb(255, 255, 255);
+  text-shadow: 0px 0px 5px rgb(0, 194, 255);
+}
+.product-form__btn:hover {
+  background-color: #00c2ff;
+  border-color: rgb(255, 255, 255);
+  color: black;
 }
 
-.product-form > div {
+.input-product-box {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
   margin-bottom: 1rem;
 }
-
-.submit-btn {
-  padding: 0.5rem 1rem;
-  border: 1px solid greenyellow;
-  color: white;
-  background-color: green;
+.input-product-box__label {
+  margin-bottom: 0.3rem;
+}
+.input-product-box__input {
+  padding: 0.5rem;
+  font-size: 1.25rem;
 }
 
 .edit-btn {
-  background-color: dodgerblue;
-  border-color: skyblue;
+  background-color: rgb(0, 172, 11);
+  border-color: rgb(157, 235, 135);
 }
 
 .table-container {
@@ -589,13 +600,13 @@ body {
   border-collapse: collapse;
 }
 
-.table-product thead tr {
-  background-color: dodgerblue;
+.table-product__title {
+  background-color: #00c2ff;
   color: white;
 }
 
 .table-product th, .table-product td {
-  border: 1px solid skyblue;
+  border: 1px solid #00c2ff;
   font-size: 0.75rem;
 }
 
@@ -669,19 +680,6 @@ body {
   background-color: rgb(199, 1, 1);
 }
 
-/* .product__action-btn--edit { //asi es como deberia de quedar para sass
-    background-color: rgb(73, 162, 250); 
-}
-.product__action-btn--edit:hover {
-    background-color: rgb(8, 131, 255); 
-}
-
-.product__action-btn--favorite {
-    background-color: rgb(253, 247, 230); 
-}
-.product__action-btn--favorite:hover {
-    background-color: rgb(247, 217, 155); 
-} */
 .btn-edit {
   background-color: rgb(73, 162, 250);
 }
@@ -690,33 +688,105 @@ body {
   background-color: rgb(8, 131, 255);
 }
 
-.btn-favorite {
-  background-color: rgb(253, 247, 230);
-}
-
-.btn-favorite.active {
-  background-color: rgb(253, 198, 36);
-}
-
-.btn-favorite:hover {
-  background-color: rgb(247, 217, 155);
-}
-
 @media screen and (min-width: 1000px) {
-  .container {
+  .admin-product-container {
     flex-direction: row;
   }
   .table-container {
     overflow-x: auto;
   }
 }
-/* .red-bg .swal-title{ esto es por si queremos modificar algunas cosas de la ventana que salta
-    color: red
-} 
+.admin-user-container {
+  display: flex;
+  flex-direction: column;
+}
 
-.swal-modal {
-    background-color: #333;
-}  */
+.user-form {
+  padding: 2rem;
+  background-color: #222222;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  color: #00c2ff;
+  font-size: 1.5rem;
+}
+.user-form__btn {
+  font-size: 1.2rem;
+  height: 35px;
+  width: 100%;
+  background-color: rgb(16, 16, 16);
+  border-color: #00c2ff;
+  border-radius: 5px;
+  box-shadow: none;
+  color: rgb(255, 255, 255);
+  text-shadow: 0px 0px 5px rgb(0, 194, 255);
+}
+.user-form__btn:hover {
+  background-color: #00c2ff;
+  border-color: rgb(255, 255, 255);
+  color: black;
+}
+
+.input-user-box {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-bottom: 1rem;
+}
+.input-user-box__label {
+  margin-bottom: 0.3rem;
+}
+.input-user-box__input {
+  padding: 0.5rem;
+  font-size: 1.25rem;
+}
+
+.edit-btn {
+  background-color: rgb(0, 172, 11);
+  border-color: rgb(157, 235, 135);
+}
+
+.table-container {
+  width: 100vw;
+  overflow-x: scroll;
+}
+
+.table-user {
+  border-collapse: collapse;
+}
+
+.table-user__title {
+  background-color: #00c2ff;
+  color: white;
+}
+
+.table-user th, .table-user td {
+  border: 1px solid #00c2ff;
+  font-size: 0.75rem;
+  text-align: center;
+}
+
+.table-user tr td:not(:first-child) {
+  padding: 0.5rem;
+}
+
+.table-user tbody tr:nth-child(odd) {
+  background-color: rgba(252, 0, 0, 0.464);
+}
+
+.table-user tr th {
+  padding: 0.5rem;
+}
+
+@media screen and (min-width: 1000px) {
+  .admin-user-container {
+    flex-direction: row;
+  }
+  .table-container {
+    overflow-x: auto;
+  }
+}
 .contact-container {
   display: flex;
   flex-direction: column;
@@ -915,7 +985,126 @@ body {
     margin-top: 1rem;
   }
 }
+.login-form {
+  display: flex;
+  justify-content: center;
+  border: 2px solid red;
+}
+
+.login-form-container {
+  margin: 5rem 0;
+  padding: 1.5rem;
+  background-color: #222222;
+  font-family: Arial, Helvetica, sans-serif;
+  box-shadow: 0px 0px 14px 8px rgba(0, 0, 0, 0.75);
+}
+.login-form-container__btn {
+  width: 100%;
+  font-size: 2rem;
+  height: 60px;
+  background-color: rgb(16, 16, 16);
+  border-color: #00c2ff;
+  border-radius: 5px;
+  box-shadow: none;
+  color: rgb(255, 255, 255);
+  text-shadow: 0px 0px 5px rgb(0, 194, 255);
+}
+.login-form-container__btn:hover {
+  background-color: #00c2ff;
+  border-color: rgb(255, 255, 255);
+  color: black;
+}
+
+.input-group-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  color: #00c2ff;
+  font-size: 2rem;
+}
+.input-group-form__label {
+  margin-bottom: 10px;
+}
+.input-group-form__input {
+  text-align: center;
+  font-size: 2rem;
+  width: 100%;
+  padding: 1rem;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+  color: #0029af;
+  padding-bottom: 0.1rem;
+}
+
+.product-container {
+  margin-top: 0.5rem;
+  display: flex;
+  justify-content: center;
+}
+.product-container__img {
+  width: 15rem;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+.product-container__section {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-left: 1rem;
+  background-color: #222222;
+  border: 2px solid #00c2ff;
+}
+
+.product-info-container {
+  margin: 5px 0;
+}
+.product-info-container__title {
+  margin-bottom: 0.75rem;
+}
+.product-info-container__price {
+  font-weight: bolder;
+  font-size: 1.5rem;
+  color: #00c2ff;
+}
+
+.quantity-product__decrease {
+  width: 1.5rem;
+}
+.quantity-product__input {
+  width: 2rem;
+}
+.quantity-product__increase {
+  width: 1.5rem;
+}
+
+.product-detail-btn {
+  margin-top: 5px;
+}
+.product-detail-btn__add {
+  height: 2rem;
+}
+.product-detail-btn__shop {
+  height: 2rem;
+  margin-left: 0.3rem;
+}
+
+.product-description__title {
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+  border-bottom: 1px solid #00c2ff;
+  font-weight: 100;
+  color: rgb(255, 255, 255);
+  padding: 1rem;
+  margin: 0.5rem;
+}
+.product-description__description {
+  text-align: center;
+}
+
 .title {
+  margin: 0.5rem;
   font-family: Arial, Helvetica, sans-serif;
   text-align: center;
   border-bottom: 1px solid #00c2ff;
