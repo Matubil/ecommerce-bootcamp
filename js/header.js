@@ -44,15 +44,8 @@ function createLinkElement(path, text, type = null){
     const link = document.createElement('a')
     link.classList.add('navbar__nav-link')
     link.href =`/pages/${path}/${path}.html`
-    //link.setAttribute('target', '_blank')
     link.innerText = text
     
-    // //  ESTA SERIA LA MEJOR FORMA DE HACERLO //? SI quisieramos que quede bien seria esta linea para abajo, hasta return type (ejemplo 1)
-    // if(type){ //si ingresa un tipo, va a crear un nuevo elemento en el navbar
-    //     li = document.createElement(type)
-    //     li.appenChild(link)
-    // }
-    // return type ? li : link
     return link
 }
 

@@ -36,7 +36,7 @@ function renderizarDetail(){
                                     $ ${product.price}
                                 </div>
                                 <p class="product-info-container__mini-description">
-                                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Minima, sint.
+                                    "Compra lo que necesitas acá en Vikings Technology"
                                 </p>
                             </div>
                             <div class="product-function-container">
@@ -46,20 +46,20 @@ function renderizarDetail(){
                                     </h5>
                                     
                                     <div class="product-quantity-container__increase quantity-product">
-                                        <button class="quantity-product__decrease">
+                                        <button class="quantity-product__btn">
                                             -
                                         </button>
                                         <!-- !Recordar poner min 1 y que sea para completar -->
                                         <input type="number" class="quantity-product__input">
-                                        <button class="quantity-product__increase">
+                                        <button class="quantity-product__btn">
                                             +
                                         </button>
                                     </div>
                                 </div>
                             
                                 <div class="product-function-container__btns product-detail-btn">
-                                    <button class="product-detail-btn__add">Agregar al carrito</button>
-                                    <button class="product-detail-btn__shop">Comprar ahora</button>
+                                    <button class="product-detail-btn__functions">Agregar al carrito</button>
+                                    <button class="product-detail-btn__functions">Comprar ahora</button>
                                 </div>
                             </div>                            
                         </div>

@@ -6,6 +6,7 @@
     &__img{
         width: 15rem;
         object-fit: contain;
+        border: 2px solid $color-bg-primary;
     }
     &__section{
         padding: 10px;
@@ -15,7 +16,6 @@
         margin-left: 1rem;
         background-color: #222222;
         border: 2px solid $color-bg-primary;
-
     }
 }
 
@@ -54,6 +54,56 @@
     }
 }
 
+
+.product-quantity-container{
+    &__title{
+        margin-bottom: 5px;
+    }
+}
+
+.quantity-product{
+    &__btn{
+        width: 1.5rem;
+        font-size: 1.2rem;
+        background-color: rgb(16, 16, 16);
+        border-color: $color-bg-primary;
+        border-radius: 5px;
+        box-shadow: none;
+        color: $color-text-light;
+        text-shadow: 0px 0px 5px rgba(0,194,255,1);
+        &:hover{ 
+            background-color: $color-bg-primary;
+            border-color: rgb(255, 255, 255);
+            color: black;
+        }
+    }
+    &__input{
+        width: 2rem;
+        text-align: center;
+        font-size: .75rem;
+        font-weight: bolder;
+        height: 2.5rem;
+    }
+}
+
+.product-detail-btn{
+    &__functions{
+        width: 8rem;
+        font-size: 1.2rem;
+        background-color: rgb(16, 16, 16);
+        border-color: $color-bg-primary;
+        border-radius: 5px;
+        box-shadow: none;
+        color: $color-text-light;
+        text-shadow: 0px 0px 5px rgba(0,194,255,1);
+        &:hover{ 
+            background-color: $color-bg-primary;
+            border-color: rgb(255, 255, 255);
+            color: black;
+        }
+    }
+}
+
 .product-description{
     &__title{
         font-family: Arial, Helvetica, sans-serif;
@@ -63,12 +113,56 @@
         color: $color-text-light;
         padding: 1rem;
         margin: 0.5rem; 
+        font-size: 1.5rem;
+        text-shadow: 2px 2px 2px $color-bg-primary ;
     }
     &__description{
         text-align: center;
     }
 }
 
-@media screen {
-    
+@media screen and (min-width: 1000px) {
+    .product-container{
+        &__img{
+            width: 20rem;
+        }
+    }
+
+    .product-info-container{
+        &__price{
+            margin-bottom: .5rem;
+        }
+    }
+
+    .product-detail-btn{
+        margin-top: 1rem;
+    }
+}
+
+@media screen and (min-width: 1600px){
+    .product-container{
+        margin-top: 2rem;
+        margin: 2rem;
+        &__img{
+            width: 25rem;
+        }
+    }
+
+    .product-info-container{
+        &__price{
+            margin-bottom: 1rem;
+        }
+    }
+    .product-detail-btn{
+        margin-top: 3rem;
+    }
+
+    .product-description{
+        &__title{
+            font-size: 1.5rem;
+        }
+        &__description{
+            margin-top: 1rem;
+        }
+    }
 }
