@@ -7,16 +7,16 @@ const paramsEntries = Object.fromEntries(paramsUrl)
 
 console.log(paramsEntries)
 
-const id = paramsEntries['id']; 
+const id = paramsEntries['id'];
 
 const products = JSON.parse(localStorage.getItem('Products'))
 
 const product = products[id]
-                            
+
 const mainDetail = document.getElementById('main-detail')
 
-function renderizarDetail(){
-    mainDetail.innerHTML=``;
+function renderizarDetail() {
+    mainDetail.innerHTML = ``;
 
     const detail = `
                     <div class="product-container">
@@ -46,20 +46,19 @@ function renderizarDetail(){
                                     </h5>
                                     
                                     <div class="product-quantity-container__increase quantity-product">
-                                        <button class="quantity-product__btn">
+                                        <button class="quantity-product__btn" id="restar">
                                             -
                                         </button>
-                                        <!-- !Recordar poner min 1 y que sea para completar -->
-                                        <input type="number" class="quantity-product__input">
-                                        <button class="quantity-product__btn">
+                                        <input type="number" class="quantity-product__input" value=1>
+                                        <button class="quantity-product__btn" id="sumar">
                                             +
                                         </button>
                                     </div>
                                 </div>
                             
                                 <div class="product-function-container__btns product-detail-btn">
-                                    <button class="product-detail-btn__functions">Agregar al carrito</button>
-                                    <button class="product-detail-btn__functions">Comprar ahora</button>
+                                    <button class="product-detail-btn__functions" id="agregar" onclick="agregar()">Agregar al carrito</button>
+                                    <button class="product-detail-btn__functions" id="comprar" onclick="comprar()">Comprar ahora</button>
                                 </div>
                             </div>                            
                         </div>
@@ -73,7 +72,50 @@ function renderizarDetail(){
                     </p>
                     </div> `
 
-    mainDetail.innerHTML= detail
+    mainDetail.innerHTML = detail
 }
 
 renderizarDetail()
+
+function agregar() {
+        const existingCartItems = JSON.parse(sessionStorage.getItem('order')) || [];
+        const updatedProduct = { ...product, quantity: parseInt(document.querySelector('.quantity-product__input').value) };
+        const existingProductIndex = existingCartItems.findIndex(item => item.name === updatedProduct.name);
+        if (existingProductIndex !== -1) {
+            existingCartItems[existingProductIndex].quantity += updatedProduct.quantity;
+        } else {
+            existingCartItems.push(updatedProduct);
+        }
+        sessionStorage.setItem('order', JSON.stringify(existingCartItems));
+    };
+
+
+
+function comprar() {
+        const existingCartItems = JSON.parse(sessionStorage.getItem('order')) || [];
+        const updatedProduct = { ...product, quantity: parseInt(document.querySelector('.quantity-product__input').value) };
+        const existingProductIndex = existingCartItems.findIndex(item => item.name === updatedProduct.name);
+        if (existingProductIndex !== -1) {
+            existingCartItems[existingProductIndex].quantity += updatedProduct.quantity;
+        } else {
+            existingCartItems.push(updatedProduct);
+        }
+        sessionStorage.setItem('order', JSON.stringify(existingCartItems));
+
+
+        window.location.replace("/pages/order-detail/order-detail.html");
+    };
+
+
+
+
+//te fijas si order esta vacio
+/*
+    si lo esta sumas product, quantity
+    si no lo esta vacio
+        buscas el producto 
+            si no esta el producto se agrega
+                si lo esta sumas product, quantity
+            si esta 
+                se suma los quantitys
+ */
