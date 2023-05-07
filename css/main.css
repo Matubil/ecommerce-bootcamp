@@ -1097,6 +1097,11 @@ body {
 .order-product__name {
   font-weight: bold;
 }
+.order-product__img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  height: 100%;
+}
 
 .order-import-total {
   text-align: center;

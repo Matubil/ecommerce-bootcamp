@@ -1,20 +1,3 @@
-
-const badgeHTML = document.getElementById('card-count')
-
-// va a ser la lista de lo que la persona ordene y vaya agregando
-function actualizarBadge() {
-  let totalQuantity = 0;
-  Order.forEach((producto) => {
-    totalQuantity += producto.quantity
-  })
-
-
-  badgeHTML.innerText = totalQuantity
-}
-
-
-actualizarBadge()
-
 function renderOrder() {
 
   let valorTotal = 0;
@@ -48,9 +31,9 @@ function renderOrder() {
     return acc;
   }, {});
 
-  // Convertir objeto en array
+  // Convierto el objeto en array
   const productsArray = Object.values(groupedProducts);
-
+  let suma = 0
   productsArray.forEach((producto, index) => {
     let imageSrc = producto.image ? producto.image : '/assets/images/funciones-pagina/not-found.webp';
 
@@ -72,7 +55,7 @@ function renderOrder() {
               </button>
             </td>
             <td class="product__price" id="total-pedido-${index}">
-              $ ${producto.price}
+              $ ${producto.price * producto.quantity}
             </td>        
             <td class= "product__actions">
                 <button class="product__action-btn" onclick="deleteProduct(${index})"> 
@@ -82,9 +65,10 @@ function renderOrder() {
         </tr>
         `
     orderDetail.innerHTML += tableRow
-    valorTotal += producto.price;
+    suma += producto.price * producto.quantity
+    valorTotal = Math.round(suma * 100) / 100;
+    console.log(valorTotal)
   })
-  console.log(valorTotal)
   updateTotal();
   const tableRow = `
         <tr class="order-import-total">

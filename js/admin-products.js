@@ -1,5 +1,3 @@
-var Products = JSON.parse(localStorage.getItem("Products")) || []; 
-
 const productForm = document.getElementById('add-product')
 productForm.addEventListener('click', () => {
     console.dir(productForm.dataset)

@@ -1,5 +1,3 @@
-let Users = JSON.parse(localStorage.getItem("users")) || []; 
-
 const userForm = document.getElementById('add-product')//Se puede escuchar eventos sin necesidad de poner el onsubmit en el html, siempre que los almacene en una variable, en el html voy a dejar eso escrito como deberia de estar y como está ahora es como dejó explicado el profesor *2
 userForm.addEventListener('click', () => {
     console.dir(userForm.dataset) //un dataset es un conjunto de propiedad que yo puedo definir y puedo leer sobre mi HTML la propiedad custom

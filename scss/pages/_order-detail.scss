@@ -50,6 +50,10 @@
     &__name{
         font-weight: bold;
     }
+    &__img{
+        object-fit: cover;
+        height: 100%;
+    }
 }
 
 .order-import-total{
