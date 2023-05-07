@@ -22,7 +22,7 @@
                 <img class="navbar__logo" src="/assets/images/logos/viking logo cabeza.png" alt="Logo del ecommerce">
             </a>
             <div class="user-navbar">
-                <a href="/pages/order-detail/order-detail.html"> <!-- !Poner los badge, osea le circulito para cuando agreguemos productos-->
+                <a href="/pages/order-detail/order-detail.html"> 
                     <div class="user-navbar__cart-icon-container">
                         <i class="fa-solid fa-cart-shopping"></i>
                         <div class="user-navbar__cart-badge" id="card-count">0</div>
@@ -83,11 +83,11 @@
                         <label for="" class="product-search__label">
                             Buscar
                         </label>
-                        <input type="text" class="product-search__input">
+                        <input type="text" class="product-search__input" id="search-input" onkeyup="searchProduct()">
                         <button class="product-search__btn">Buscar</button>
                     </div>
 
-                    <div class="section-cards__products-count">
+                    <div class="section-cards__products-count" id="product-count">
                         Se encontraron X productos
                     </div>
                 </div>

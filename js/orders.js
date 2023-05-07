@@ -2,7 +2,15 @@ const badgeHTML = document.getElementById('card-count')
 
 // va a ser la lista de lo que la persona ordene y vaya agregando
 function actualizarBadge() {
-  badgeHTML.innerText = Order.length
+  let totalQuantity = 0;
+  Order.forEach((producto) => {
+    totalQuantity += producto.quantity
+  })
+
+  if(totalQuantity<0){
+    totalQuantity=0
+  }
+  badgeHTML.innerText = totalQuantity
 }
 
 console.log(Order.length)
@@ -56,87 +64,152 @@ function renderOrder() {
             <td class= "order-product__name">
                 ${producto.name}
             </td>
-            <td class= "order-product__price" id="total-pedido">
-                $ ${(producto.price)*producto.quantity}
-            </td>
-            <td class="order-product__quantity quantity-order-product">
-              <button class="quantity-order-product__btn" onclick="decreaseQuantity(${index})">
-              -
+            <td class="order-product__quantity quantity-product">
+              <button class="quantity-order-product__btn" id="restar" data-index="${index}" onclick="decreaseQuantity(event, ${index})">
+                  -
               </button>
-              <!-- !Recordar poner maximo 1 y que sea para completar -->
-              <input type="number" class="quantity-order-product__input" value=${producto.quantity}>
-              <button class="quantity-order-product__btn" onclick="increaseQuantity(${index})">
-              +
+              <input type="number" class="quantity-product__input" value=${producto.quantity} data-index="${index}">    
+              <button class="quantity-order-product__btn" id="sumar" data-index="${index}" onclick="increaseQuantity(event, ${index})">
+                  +
               </button>
             </td>
+            <td class="product__price" id="total-pedido-${index}">
+              $ ${producto.price}
+            </td>        
             <td class= "product__actions">
-                <button class="product__action-btn" onclick="deleteproduct(${index})"> 
+                <button class="product__action-btn" onclick="deleteProduct(${index})"> 
                     <i class="fa-solid fa-trash-can"></i>
                 </button>
             </td>
-        </tr>`
+        </tr>
+        `
     orderDetail.innerHTML += tableRow
     valorTotal += producto.total;
 
   })
+  // const tableRow = `
+  //   <tr>
+  //           <td class="order-import-total" colspan = '4'>
+  //           TOTAL
+  //           </td>
+  //           <td class="order-import-total">
+  //           $ ${totalOrden}
+  //           </td>
+  //   </tr>
+  // ` 
+  // tableBody.innerHTML += tableRow; 
 }
-
 
 renderOrder()
 
-
-
-function increaseQuantity(index) {
-  let cantInput = document.querySelector(`.quantity-product__input:nth-of-type(${index + 1})`);
-  if (!cantInput) {
-    console.error(`No se encontró el elemento cant-prod${index}`);
-    return;
-  }
-  let cant = parseInt(cantInput.value);
-  if (isNaN(cant)) {
-    console.error(`No se pudo convertir el valor "${cantInput.value}" a un número`);
-    return;
-  }
-  let producto = Order[index];
-  cant++;
-  producto.quantity = cant;
-  producto.total = cant * producto.price;
-  cantInput.value = cant;
-  updateTotal();
-  saveOrder();
+function buscarProducto(products, productName) {
+  const productoEncontrado = products.find(producto => producto.name === productName);
+  return productoEncontrado || null;
 }
 
-function decreaseQuantity(index) {
-  let cantInput = document.querySelector(`.quantity-product__input:nth-of-type(${index + 1})`);
-  if (!cantInput) {
-    console.error(`No se encontró el elemento cant-prod${index}`);
+function increaseQuantity(event, index) {
+  const increaseBtn = event.target;
+  const cantInput = document.querySelector(`.quantity-product__input[data-index="${index}"]`);
+
+  const productName = Products[index].name;
+  const productoEncontrado = Order[index];
+
+  if (!productoEncontrado) {
+    console.error(`No se encontró ningún producto con el nombre ${productName}`);
     return;
   }
+
   let cant = parseInt(cantInput.value);
   if (isNaN(cant)) {
     console.error(`No se pudo convertir el valor "${cantInput.value}" a un número`);
     return;
   }
-  let producto = Order[index];
-  if (cant > 1) {
-    cant--;
-    producto.quantity = cant;
-    producto.total = cant * producto.price;
-    cantInput.value = cant;
-    updateTotal();
-    saveOrder();
+
+  cant++;
+
+  productoEncontrado.quantity = cant;
+  productoEncontrado.total = cant * productoEncontrado.price;
+  cantInput.value = cant;
+
+  // Aquí se actualiza el valor de la cantidad en el sessionStorage
+  const productosEnCarrito = JSON.parse(sessionStorage.getItem('order'));
+  const productoEnCarrito = productosEnCarrito.find(producto => producto.name === productName);
+  if (productoEnCarrito) {
+    productoEnCarrito.quantity = cant;
+    sessionStorage.setItem('order', JSON.stringify(productosEnCarrito));
   }
+
+  const precioTotalHTML = document.getElementById(`total-pedido-${index}`);
+
+  if (precioTotalHTML) {
+    precioTotalHTML.innerText = `$ ${productoEncontrado.total}`;
+  } else {
+    console.error(`Element with ID "total-pedido-${index}" not found in the DOM`);
+    return;
+  }
+
+  actualizarBadge();
+  updateTotal();
 }
 
 function updateTotal() {
-  valorTotal = Order.reduce((acc, producto) => acc + (producto.total ? producto.total : 0), 0);
-
-  document.getElementById('total-pedido').textContent = `$ ${valorTotal}`;
+  const index = 0; // supongamos que el índice del primer producto es 0
+  const valorTotalHTML = document.getElementById(`total-pedido-${index}`);
+  if (valorTotalHTML) {
+    valorTotalHTML.textContent = `$ ${valorTotal}`;
+  } else {
+    console.error(`Element with ID "total-pedido-${index}" not found in the DOM`);
+  }
 }
 
-function saveOrder() {
-  localStorage.setItem('Order', JSON.stringify(Order));
+function decreaseQuantity(event, index) {
+  const increaseBtn = event.target;
+  const cantInput = document.querySelector(`.quantity-product__input[data-index="${index}"]`);
+
+  const productName = Products[index].name;
+  const productoEncontrado = Order[index];
+
+  if (!productoEncontrado) {
+    console.error(`No se encontró ningún producto con el nombre ${productName}`);
+    return;
+  }
+
+  let cant = parseInt(cantInput.value);
+  if (isNaN(cant)) {
+    console.error(`No se pudo convertir el valor "${cantInput.value}" a un número`);
+    return;
+  }
+
+  cant--;
+  if(cant<=0){
+    cant=1
+  }
+  productoEncontrado.quantity = cant;
+  productoEncontrado.total = cant * productoEncontrado.price;
+  cantInput.value = cant;
+
+  // Aquí se actualiza el valor de la cantidad en el sessionStorage
+  const productosEnCarrito = JSON.parse(sessionStorage.getItem('order'));
+  const productoEnCarrito = productosEnCarrito.find(producto => producto.name === productName);
+  if (productoEnCarrito) {
+    productoEnCarrito.quantity = cant;
+    sessionStorage.setItem('order', JSON.stringify(productosEnCarrito));
+  }
+
+  const precioTotalHTML = document.getElementById(`total-pedido-${index}`);
+
+  if (precioTotalHTML) {
+    precioTotalHTML.innerText = `$ ${productoEncontrado.total}`;
+  } else {
+    console.error(`Element with ID "total-pedido-${index}" not found in the DOM`);
+    return;
+  }
+
+  actualizarBadge();
+  updateTotal();
 }
+
+
 
 
 /* REVISAR ASI ESTABA ANTES Y ARRIBA LE DI FUNCIONALIDAD DE SUMA
@@ -153,11 +226,11 @@ function increaseQuantity(index) {
 */
 
 function deleteProduct(id) {
-  Products.splice(id, 1)
+  Order.splice(id, 1)
   //Guardarlo en el local storage
-  localStorage.setItem('order', JSON.stringify(Products));
+  sessionStorage.setItem('order', JSON.stringify(Order));
 
-  renderizarTabla();
+  renderOrder();
   showAlert('Producto Eliminado de la Orden')
   contarProductos();
 
@@ -174,7 +247,7 @@ function finalizarCompra() {
     } else {
       localStorage.removeItem('order')
       Products = [];
-      renderizarTabla();
+      renderOrder();
       showAlert('Compra Finalizada', 'exito')
       contarProductos();
     }

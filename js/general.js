@@ -1,4 +1,4 @@
-let Users = JSON.parse(localStorage.getItem("users")) || [[{"name":"MATIAS BILONI","age":"","password":"12341234","email":"admin@gmail.com","gender":"1","role":"ADMIN_ROLE"}]]; 
+let Users = JSON.parse(localStorage.getItem("users")) || [[{ "name": "MATIAS BILONI", "age": "", "password": "12341234", "email": "admin@gmail.com", "gender": "1", "role": "ADMIN_ROLE" }]];
 
 // if(!Users || Users.length === 0){
 //     window.localStorage.setItem('users',JSON.stringify([{
@@ -154,22 +154,27 @@ let Users = JSON.parse(localStorage.getItem("users")) || [[{"name":"MATIAS BILON
 
 localStorage.setItem("users", JSON.stringify(Users))
 
-let Products = JSON.parse(localStorage.getItem("Products")) || []; 
+let Products = JSON.parse(localStorage.getItem("Products")) || [];
 let Order = JSON.parse(sessionStorage.getItem("order")) || [];
 
 
 const cardsContainer = document.getElementById('cards-container')
 
-function renderizarCard(){
-    //iterar el array para acceder a cada producto
-    cardsContainer.innerHTML = ""; //lo que hace esto o para lo que está es para que cada vez que se cargue la funcion, se borre toda la tabla
 
-    if(Products.length === 0){
+function renderizarCard(listaProducts) {
+    //iterar el array para acceder a cada producto
+    cardsContainer.innerHTML = "";
+
+    if (listaProducts.length === 0) {
         cardsContainer.innerHTML = `<h1 class="disabled">ERROR, NO SE ENCONTRARON PRODUCTOS</h1>`;
-        return
+        return;
     }
-    Products.forEach((producto, index) =>{    
-        let imageSrc = producto.image ? producto.image : '/assets/images/funciones-pagina/not-found.webp'; 
+
+    listaProducts.forEach((producto) => {
+        let imageSrc = producto.image ? producto.image : '/assets/images/funciones-pagina/not-found.webp';
+
+        // Buscar el índice correspondiente en la lista original usando el nombre del producto
+        let index = Products.findIndex((p) => p.name === producto.name);
 
         const card = `                                          
                         <article class="card">
@@ -193,16 +198,16 @@ function renderizarCard(){
                                 </div>
                             </div>
                             <div class="card__footer">
-                                <div class="card__btn-container">
-                                    <a class="card__btn" href="/" onclick="addToCart(${index})">
-                                        Comprar
-                                    </a>
-                                </div>
-                                <div class="card__btn-container">
-                                    <a class="card__btn" href="/pages/product-detail/product-detail.html?id=${index}">
-                                        Detalle
-                                    </a>
-                                </div>
+                            <div class="card__btn-container">
+                                <a class="card__btn" href="/" onclick="addToCart(event, ${index})">
+                                Comprar
+                                </a>
+                            </div>
+                            <div class="card__btn-container">
+                                <a class="card__btn" href="/pages/product-detail/product-detail.html?id=${index}">
+                                Detalle
+                                </a>
+                            </div>
                             </div>
                         </article>`
 
@@ -210,30 +215,50 @@ function renderizarCard(){
     })
 }
 
-renderizarCard()
+renderizarCard(Products)
+
+function searchProduct() {
+    var searchTerm = document.getElementById('search-input').value;
+    var products = JSON.parse(localStorage.getItem('Products'));
+    var foundProducts = products.filter(function(product) {
+        return product.name.toLowerCase().includes(searchTerm.toLowerCase());
+    });
+
+    var productCountElement = document.getElementById('product-count');
+    productCountElement.textContent = 'Se encontraron ' + foundProducts.length + ' productos';
+
+    renderizarCard(foundProducts)
+}
 
 
-function addToCart(productId) {
+
+function addToCart(event, productId) {
+    event.preventDefault();
+
     const product = Products[productId];
-  
-    // Crear un nuevo objeto con el mismo contenido que el producto original
-    const newProduct = {
-      ...product,
-      quantity: 1
-    };
-  
-    // Agregar el nuevo objeto al carrito
-    Order.push(newProduct);
-  
+    
+    // Buscar si el producto ya está en el carrito
+    const index = Order.findIndex(item => item.name === product.name);
+    
+    if (index !== -1) { // Si el producto ya está en el carrito, aumentar su cantidad
+        Order[index].quantity++;
+    } else { // Si el producto no está en el carrito, agregarlo con cantidad 1
+        const newProduct = {
+        ...product,
+        quantity: 1
+        };
+        Order.push(newProduct);
+    }
+    
+    // Guardar el carrito actualizado en el localStorage
     sessionStorage.setItem("order", JSON.stringify(Order));
     console.log(Order);
     window.location.replace("/pages/order-detail/order-detail.html");
-  }
-  
-  
+}
 
 
-function deleteProduct(id){
+
+function deleteProduct(id) {
     const productName = Products[id].name;
 
     if (confirm(`¿Está seguro que desea borrar el producto ${productName}?`)) {
@@ -244,17 +269,17 @@ function deleteProduct(id){
         // showAlert(`Elemento borrado correctamente.`);
 
         showAlert(`El elemento "${productName}" borrado correctamente`, 'success')
-        
-        renderizarTabla() 
-        return   
-    }else{
+
+        renderizarTabla()
+        return
+    } else {
         showAlert(`Error al borrar el producto`, 'error');
         return; //es como poner return null, incluso se podria dejar sin el else, para que no haga nada
     }
-}  
+}
 
 
-function editProduct(id){    
+function editProduct(id) {
 
     submitBtn.classList.add('edit-btn') //le agrega una clase al boton para que tome los estilos del css
     submitBtn.innerText = 'Modificar Producto' //va a cambiar lo que dice el boton
