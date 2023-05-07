@@ -1,6 +1,25 @@
 .table-order-container{
     padding-left: 2rem;
+    position: relative;
+    &__finalize-purchase{
+        margin: 10px 0;
+        width: 12rem;
+        padding: 1rem;
+        font-size: 1.2rem;
+        border-radius: 5px;
+        box-shadow: none;
+        background-color: rgb(16, 16, 16);
+        border-color: $color-bg-primary;
+        color: $color-text-light;
+        text-shadow: 0px 0px 5px rgba(0,194,255,1);
+        &:hover{ 
+            background-color: $color-bg-primary;
+            border-color: rgb(255, 255, 255);
+            color: black;
+        }
+    }
 }
+
 
 .quantity-order-product{
     &__btn{
@@ -30,5 +49,13 @@
 .order-product{
     &__name{
         font-weight: bold;
+    }
+}
+
+.order-import-total{
+    text-align: center;
+    font-weight: bold;
+    &__price{
+        font-size: 1.5rem;
     }
 }

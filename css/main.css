@@ -1051,6 +1051,24 @@ body {
 
 .table-order-container {
   padding-left: 2rem;
+  position: relative;
+}
+.table-order-container__finalize-purchase {
+  margin: 10px 0;
+  width: 12rem;
+  padding: 1rem;
+  font-size: 1.2rem;
+  border-radius: 5px;
+  box-shadow: none;
+  background-color: rgb(16, 16, 16);
+  border-color: #00c2ff;
+  color: rgb(255, 255, 255);
+  text-shadow: 0px 0px 5px rgb(0, 194, 255);
+}
+.table-order-container__finalize-purchase:hover {
+  background-color: #00c2ff;
+  border-color: rgb(255, 255, 255);
+  color: black;
 }
 
 .quantity-order-product__btn {
@@ -1078,6 +1096,14 @@ body {
 
 .order-product__name {
   font-weight: bold;
+}
+
+.order-import-total {
+  text-align: center;
+  font-weight: bold;
+}
+.order-import-total__price {
+  font-size: 1.5rem;
 }
 
 .product-container {

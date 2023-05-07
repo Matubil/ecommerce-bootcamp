@@ -85,12 +85,13 @@ function renderOrder() {
     valorTotal += producto.price;
   })
   console.log(valorTotal)
+  updateTotal();
   const tableRow = `
-        <tr>
-                <td class="order-import-total" colspan = '3'>
+        <tr class="order-import-total">
+                <td class="order-import-total__text"  colspan = '3'>
                   TOTAL
                 </td>
-                <td class="order-import-total" colspan = '2'>
+                <td class="order-import-total__price" id="valor-total" colspan = '2'>
                   $ ${valorTotal}
                 </td>
         </tr>
@@ -158,14 +159,12 @@ function updateTotal() {
   let valorTotal = 0;
 
   Order.forEach((producto) => {
-    valorTotal += (producto.quantity * producto.price);
+    valorTotal +=  Math.round((producto.quantity * producto.price) * 100) / 100;;
   });
 
-  const totalHTML = document.querySelector('.order-import-total');
+  const totalHTML = document.getElementById('valor-total');
   if (totalHTML) {
     totalHTML.textContent = `$ ${valorTotal.toFixed(2)}`;
-  } else {
-    console.error("Element with class 'order-import-total' not found in the DOM");
   }
 }
 
@@ -214,7 +213,7 @@ function decreaseQuantity(event, index) {
   }
 
   actualizarBadge();
-  // updateTotal();
+  updateTotal();
 }
 
 function deleteProduct(id) {
@@ -232,17 +231,17 @@ function finalizarCompra() {
   const currentUser = JSON.parse(localStorage.getItem('currentUser'));
   if (!currentUser) {
     showAlert('Debe de estar logueado para Finalizar la compra', 'advertencia')
-  }
-  else {
+  } else {
     if (Order.length === 0) {
       showAlert('Debe seleccionar un producto para poder Finalizar la compra', 'advertencia')
     } else {
-      sessionStorage.removeItem('order')
-      renderOrder();
-      showAlert('Compra Finalizada', 'exito')
+      sessionStorage.removeItem('order');
+      Order = []; // Vacía el carrito
+      renderOrder(); // Renderizar la orden antes de eliminar el contenido del carrito
+      showAlert('Compra Finalizada', 'exito');
+      
     }
-
   }
-
 }
+
 
