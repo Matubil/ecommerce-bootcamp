@@ -705,6 +705,9 @@ body {
   .table-container {
     overflow-x: auto;
   }
+  .table-product tr th {
+    font-size: 1.5rem;
+  }
 }
 .admin-user-container {
   display: flex;
@@ -1071,6 +1074,10 @@ body {
   font-size: 0.75rem;
   font-weight: bolder;
   height: 2.5rem;
+}
+
+.order-product__name {
+  font-weight: bold;
 }
 
 .product-container {

@@ -46,19 +46,19 @@ function renderizarDetail() {
                                     </h5>
                                     
                                     <div class="product-quantity-container__increase quantity-product">
-                                        <button class="quantity-product__btn" id="restar">
+                                        <button class="quantity-product__btn" onclick="decreaseInput()">
                                             -
                                         </button>
-                                        <input type="number" class="quantity-product__input" value=1>
-                                        <button class="quantity-product__btn" id="sumar">
+                                        <input type="number" class="quantity-product__input" id="quantity-input" value=1>
+                                        <button class="quantity-product__btn" onclick="increaseInput()">
                                             +
                                         </button>
                                     </div>
                                 </div>
                             
                                 <div class="product-function-container__btns product-detail-btn">
-                                    <button class="product-detail-btn__functions" id="agregar" onclick="agregar()">Agregar al carrito</button>
-                                    <button class="product-detail-btn__functions" id="comprar" onclick="comprar()">Comprar ahora</button>
+                                    <button class="product-detail-btn__functions" onclick="addCart()">Agregar al carrito</button>
+                                    <button class="product-detail-btn__functions" onclick="boughtProduct()">Comprar ahora</button>
                                 </div>
                             </div>                            
                         </div>
@@ -77,7 +77,23 @@ function renderizarDetail() {
 
 renderizarDetail()
 
-function agregar() {
+let input = document.getElementById("quantity-input");
+    let currentValue = parseInt(input.value);
+
+    function increaseInput() {
+        input.value = currentValue + 1;
+        currentValue = parseInt(input.value);
+    }
+
+    function decreaseInput() {
+        if (currentValue > 1) {
+            input.value = currentValue - 1;
+            currentValue = parseInt(input.value);
+        }
+    }
+
+
+function addCart() {
         const existingCartItems = JSON.parse(sessionStorage.getItem('order')) || [];
         const updatedProduct = { ...product, quantity: parseInt(document.querySelector('.quantity-product__input').value) };
         const existingProductIndex = existingCartItems.findIndex(item => item.name === updatedProduct.name);
@@ -89,9 +105,7 @@ function agregar() {
         sessionStorage.setItem('order', JSON.stringify(existingCartItems));
     };
 
-
-
-function comprar() {
+function boughtProduct() {
         const existingCartItems = JSON.parse(sessionStorage.getItem('order')) || [];
         const updatedProduct = { ...product, quantity: parseInt(document.querySelector('.quantity-product__input').value) };
         const existingProductIndex = existingCartItems.findIndex(item => item.name === updatedProduct.name);
@@ -107,15 +121,3 @@ function comprar() {
     };
 
 
-
-
-//te fijas si order esta vacio
-/*
-    si lo esta sumas product, quantity
-    si no lo esta vacio
-        buscas el producto 
-            si no esta el producto se agrega
-                si lo esta sumas product, quantity
-            si esta 
-                se suma los quantitys
- */

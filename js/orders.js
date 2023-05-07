@@ -3,13 +3,13 @@ const badgeHTML = document.getElementById('card-count')
 
 // va a ser la lista de lo que la persona ordene y vaya agregando
 function actualizarBadge() {
-    let totalQuantity = 0;
-    Order.forEach((producto) => {
-        totalQuantity += producto.quantity
-    })
+  let totalQuantity = 0;
+  Order.forEach((producto) => {
+    totalQuantity += producto.quantity
+  })
 
 
-    badgeHTML.innerText = totalQuantity
+  badgeHTML.innerText = totalQuantity
 }
 
 
@@ -82,9 +82,21 @@ function renderOrder() {
         </tr>
         `
     orderDetail.innerHTML += tableRow
-    valorTotal += producto.total;
-
+    valorTotal += producto.price;
   })
+  console.log(valorTotal)
+  const tableRow = `
+        <tr>
+                <td class="order-import-total" colspan = '3'>
+                  TOTAL
+                </td>
+                <td class="order-import-total" colspan = '2'>
+                  $ ${valorTotal}
+                </td>
+        </tr>
+        `
+  orderDetail.innerHTML += tableRow;
+
 
 }
 
@@ -118,7 +130,7 @@ function increaseQuantity(event, index) {
   productoEncontrado.total = Math.round(cant * productoEncontrado.price * 100) / 100;
   cantInput.value = cant;
   console.log(cant)
-  // Aquí se actualiza el valor de la cantidad en el sessionStorage
+  // Aca se actualiza el valor de la cantidad en el sessionStorage
   const productosEnCarrito = JSON.parse(sessionStorage.getItem('order'));
   const productoEnCarrito = productosEnCarrito.find(producto => producto.name === productoEncontrado.name);
   if (productoEnCarrito) {
@@ -139,18 +151,24 @@ function increaseQuantity(event, index) {
   }
 
   actualizarBadge();
-  // updateTotal();
+  updateTotal();
 }
 
-// function updateTotal() {
-//   const index = 0; // supongamos que el índice del primer producto es 0
-//   const valorTotalHTML = document.getElementById(`total-pedido-${index}`);
-//   if (valorTotalHTML) {
-//     valorTotalHTML.textContent = `$ ${valorTotal}`;
-//   } else {
-//     console.error(`Element with ID "total-pedido-${index}" not found in the DOM`);
-//   }
-// }
+function updateTotal() {
+  let valorTotal = 0;
+
+  Order.forEach((producto) => {
+    valorTotal += (producto.quantity * producto.price);
+  });
+
+  const totalHTML = document.querySelector('.order-import-total');
+  if (totalHTML) {
+    totalHTML.textContent = `$ ${valorTotal.toFixed(2)}`;
+  } else {
+    console.error("Element with class 'order-import-total' not found in the DOM");
+  }
+}
+
 
 function decreaseQuantity(event, index) {
   const increaseBtn = event.target;
@@ -178,9 +196,9 @@ function decreaseQuantity(event, index) {
   productoEncontrado.total = Math.round(cant * productoEncontrado.price * 100) / 100;
   cantInput.value = cant;
 
-  // Aquí se actualiza el valor de la cantidad en el sessionStorage
+  // Aca se actualiza el valor de la cantidad en el sessionStorage
   const productosEnCarrito = JSON.parse(sessionStorage.getItem('order'));
-  const productoEnCarrito = productosEnCarrito.find(producto => producto.name === productName);
+  const productoEnCarrito = productosEnCarrito.find(producto => producto.name === productoEncontrado.name);
   if (productoEnCarrito) {
     productoEnCarrito.quantity = cant;
     sessionStorage.setItem('order', JSON.stringify(productosEnCarrito));
@@ -199,22 +217,6 @@ function decreaseQuantity(event, index) {
   // updateTotal();
 }
 
-
-
-
-/* REVISAR ASI ESTABA ANTES Y ARRIBA LE DI FUNCIONALIDAD DE SUMA
-function increaseQuantity(index) {
-    let cantInput = document.getElementById(`cant-prod${index}`);
-    let cant = parseInt(cantInput.value);
-    let producto = Order[index];
-    cant++;
-    producto.cant = cant;
-    producto.total = cant * producto.price;
-    cantInput.value = cant;
-    renderOrder();
-}
-*/
-
 function deleteProduct(id) {
   Order.splice(id, 1)
   //Guardarlo en el local storage
@@ -229,14 +231,13 @@ function deleteProduct(id) {
 function finalizarCompra() {
   const currentUser = JSON.parse(localStorage.getItem('currentUser'));
   if (!currentUser) {
-    showAlert('Debe estar logueado para poder Finalizar la compra', 'advertencia')
+    showAlert('Debe de estar logueado para Finalizar la compra', 'advertencia')
   }
   else {
-    if (Products.length === 0) {
+    if (Order.length === 0) {
       showAlert('Debe seleccionar un producto para poder Finalizar la compra', 'advertencia')
     } else {
-      localStorage.removeItem('order')
-      Products = [];
+      sessionStorage.removeItem('order')
       renderOrder();
       showAlert('Compra Finalizada', 'exito')
     }
