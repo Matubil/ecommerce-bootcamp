@@ -22,7 +22,6 @@ function renderizarTabla(){
         return
     }
     Users.forEach((usuario, index) =>{    
-        //!! let imageSrc = usuario.image ? usuario.image : '/assets/images/no-product.png'; esta seria otra forma de preguntar el let y el if, con el operador ternario
 
         const tableRow = `
                             <tr class="product">
@@ -129,6 +128,7 @@ function editProduct(id){
     submitBtn.innerText = 'Modificar usuario' //va a cambiar lo que dice el boton
 
     let user = Users[id];
+    console.log(id)
     const el = userForm.elements;
     el.name.value = user.name
     el.email.value = user.email

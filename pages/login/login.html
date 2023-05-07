@@ -25,7 +25,7 @@
                 <img class="navbar__logo" src="/assets/images/logos/viking logo cabeza.png" alt="Logo del ecommerce">
             </a>
             <div class="user-navbar">
-                <a href="/pages/order-detail/order-detail.html"> <!-- !Poner los badge, osea le circulito para cuando agreguemos productos-->
+                <a href="/pages/order-detail/order-detail.html"> 
                     <div class="user-navbar__cart-icon-container">
                         <i class="fa-solid fa-cart-shopping"></i>
                         <div class="user-navbar__cart-badge" id="card-count">0</div>
@@ -66,10 +66,6 @@
         </nav>
     </header>
 
-
-    <!-- ! SACAR EL HEADER Y TAMBIEN SACAR EL FOOTER-->
-    <!-- ! A LA VEZ DEBERIA DE CAMBIAR EL DIV QUE ENCIERRA AL FORMULARIO DE LOGIN POR EL MISMO DEL DE REGISTER PARA QUE JUNTE LOS 2 MISMOS ESTILOS-->
-
     <!-- =================MAIN=================  -->
 
     <main class="main">
@@ -78,15 +74,15 @@
             <form class="login-form-container" id="loginForm">
                 <div class="login-form-container__group input-group-form">
                     <label class="input-group-form__label" for="email">
-                        Email:
+                        Email
                     </label>
-                    <input class="input-group-form__input"  type="email" id="email" name="email" value="mat@gmail.com" required>
+                    <input class="input-group-form__input"  type="email" id="email" name="email" placeholder="example@gmail.com" required>
                 </div>
                 <div class="login-form-container__group input-group-form">
                     <label class="input-group-form__label"  for="">
                         Contraseña
                     </label>
-                    <input class="input-group-form__input"  type="text" id="password" name="password" value="mat" required><!--! IMPORTANTE recordar cambiar el type de text a password, y max y min length-->
+                    <input class="input-group-form__input"  type="password" id="password" name="password" placeholder="Password" required><!--! IMPORTANTE recordar cambiar el type de text a password, y max y min length-->
                 </div>
 
                 <button type="submit" class="login-form-container__btn">Ingresar</button>

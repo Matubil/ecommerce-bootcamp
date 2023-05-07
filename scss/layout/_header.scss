@@ -131,12 +131,14 @@
         position: absolute;
         top: -.5rem;
         right: -.5rem;
-        height: .75rem;
-        width: .75rem;
+        height: 1rem;
+        width: 1rem;
         border-radius: 50%;
         background-color: red;
-        font-size: .5rem;
+        font-size: .75rem;
+        font-weight: bolder;
         color: white;
+        text-shadow: 1px 1px $color-bg-secondary;
         text-align: center;
     }
 }

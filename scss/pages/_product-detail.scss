@@ -126,6 +126,9 @@
         &__img{
             width: 20rem;
         }
+        &__section{
+            padding: 1rem;
+        }
     }
 
     .product-info-container{
@@ -143,8 +146,12 @@
     .product-container{
         margin-top: 2rem;
         margin: 2rem;
+        // max-width: 1200px;
         &__img{
             width: 25rem;
+        }
+        &__section{
+            padding: 1.5rem;
         }
     }
 

@@ -24,7 +24,7 @@
                 <img class="navbar__logo" src="/assets/images/logos/viking logo cabeza.png" alt="Logo del ecommerce">
             </a>
             <div class="user-navbar">
-                <a href="/pages/order-detail/order-detail.html"> <!-- !Poner los badge, osea le circulito para cuando agreguemos productos-->
+                <a href="/pages/order-detail/order-detail.html"> 
                     <div class="user-navbar__cart-icon-container">
                         <i class="fa-solid fa-cart-shopping"></i>
                         <div class="user-navbar__cart-badge" id="card-count">0</div>
@@ -86,17 +86,17 @@
     
                 <div class="password-container form-container">
                     <label class="password-container__label" for="password1">Contraseña</label>
-                    <input class="password-container__input input" type="password" name="password1" id="password1" required>
+                    <input class="password-container__input input" type="password" name="password1" id="password1"  minlength="8" maxlength="20" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required>
                 </div>
     
                 <div class="reply-password-container form-container">
                     <label class="reply-password-container__label" for="password2">Repetir Contraseña</label>
-                    <input class="reply-password-container__input input" type="password" name="password2" id="password2" required>
+                    <input class="reply-password-container__input input" type="password" name="password2" id="password2"  minlength="8" maxlength="20" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required>
                 </div>
     
                 <div class="age-container form-container">
                     <label class="age-container__label" for="age">Edad</label>
-                    <input class="age-container__input input" type="number" name="age" id="age" min="12" max="110" required>
+                    <input class="age-container__input input" type="number" name="age" id="age" min="12" max="120" required>
                 </div>
     
                 <div class="born-container form-container">
@@ -453,6 +453,8 @@
     <script src="/js/alert.js"></script>
     <script src="/js/register.js"></script>
     <script src="/js/header.js"></script>
+    <script src="/js/get-order.js"></script>   
+
 
 </body>
 </html>

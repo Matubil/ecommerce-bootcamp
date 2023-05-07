@@ -92,9 +92,17 @@
     }
 }
 
+.card .card__description {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
 @media screen and (min-width: 600px) {
     .card{
-        height: 800px;
+        height: 600px;
     }
 }
 

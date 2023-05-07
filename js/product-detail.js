@@ -36,7 +36,7 @@ function renderizarDetail(){
                                     $ ${product.price}
                                 </div>
                                 <p class="product-info-container__mini-description">
-                                    "Compra lo que necesitas acá en Vikings Technology"
+                                    "Conquista el futuro de la tecnología en Vikings Technology, donde tus sueños se hacen realidad con un solo clic."
                                 </p>
                             </div>
                             <div class="product-function-container">

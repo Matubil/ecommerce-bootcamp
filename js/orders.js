@@ -1,19 +1,17 @@
+
 const badgeHTML = document.getElementById('card-count')
 
 // va a ser la lista de lo que la persona ordene y vaya agregando
 function actualizarBadge() {
-  let totalQuantity = 0;
-  Order.forEach((producto) => {
-    totalQuantity += producto.quantity
-  })
+    let totalQuantity = 0;
+    Order.forEach((producto) => {
+        totalQuantity += producto.quantity
+    })
 
-  if(totalQuantity<0){
-    totalQuantity=0
-  }
-  badgeHTML.innerText = totalQuantity
+
+    badgeHTML.innerText = totalQuantity
 }
 
-console.log(Order.length)
 
 actualizarBadge()
 
@@ -87,17 +85,7 @@ function renderOrder() {
     valorTotal += producto.total;
 
   })
-  // const tableRow = `
-  //   <tr>
-  //           <td class="order-import-total" colspan = '4'>
-  //           TOTAL
-  //           </td>
-  //           <td class="order-import-total">
-  //           $ ${totalOrden}
-  //           </td>
-  //   </tr>
-  // ` 
-  // tableBody.innerHTML += tableRow; 
+
 }
 
 renderOrder()
@@ -126,16 +114,18 @@ function increaseQuantity(event, index) {
   }
 
   cant++;
-
   productoEncontrado.quantity = cant;
-  productoEncontrado.total = cant * productoEncontrado.price;
+  productoEncontrado.total = Math.round(cant * productoEncontrado.price * 100) / 100;
   cantInput.value = cant;
-
+  console.log(cant)
   // Aquí se actualiza el valor de la cantidad en el sessionStorage
   const productosEnCarrito = JSON.parse(sessionStorage.getItem('order'));
-  const productoEnCarrito = productosEnCarrito.find(producto => producto.name === productName);
+  const productoEnCarrito = productosEnCarrito.find(producto => producto.name === productoEncontrado.name);
   if (productoEnCarrito) {
+    console.log(productoEnCarrito.quantity)
     productoEnCarrito.quantity = cant;
+    console.log(productoEnCarrito.quantity)
+
     sessionStorage.setItem('order', JSON.stringify(productosEnCarrito));
   }
 
@@ -149,18 +139,18 @@ function increaseQuantity(event, index) {
   }
 
   actualizarBadge();
-  updateTotal();
+  // updateTotal();
 }
 
-function updateTotal() {
-  const index = 0; // supongamos que el índice del primer producto es 0
-  const valorTotalHTML = document.getElementById(`total-pedido-${index}`);
-  if (valorTotalHTML) {
-    valorTotalHTML.textContent = `$ ${valorTotal}`;
-  } else {
-    console.error(`Element with ID "total-pedido-${index}" not found in the DOM`);
-  }
-}
+// function updateTotal() {
+//   const index = 0; // supongamos que el índice del primer producto es 0
+//   const valorTotalHTML = document.getElementById(`total-pedido-${index}`);
+//   if (valorTotalHTML) {
+//     valorTotalHTML.textContent = `$ ${valorTotal}`;
+//   } else {
+//     console.error(`Element with ID "total-pedido-${index}" not found in the DOM`);
+//   }
+// }
 
 function decreaseQuantity(event, index) {
   const increaseBtn = event.target;
@@ -181,11 +171,11 @@ function decreaseQuantity(event, index) {
   }
 
   cant--;
-  if(cant<=0){
-    cant=1
+  if (cant <= 0) {
+    cant = 1
   }
   productoEncontrado.quantity = cant;
-  productoEncontrado.total = cant * productoEncontrado.price;
+  productoEncontrado.total = Math.round(cant * productoEncontrado.price * 100) / 100;
   cantInput.value = cant;
 
   // Aquí se actualiza el valor de la cantidad en el sessionStorage
@@ -206,7 +196,7 @@ function decreaseQuantity(event, index) {
   }
 
   actualizarBadge();
-  updateTotal();
+  // updateTotal();
 }
 
 
@@ -232,7 +222,7 @@ function deleteProduct(id) {
 
   renderOrder();
   showAlert('Producto Eliminado de la Orden')
-  contarProductos();
+  actualizarBadge()
 
 }
 
@@ -249,41 +239,9 @@ function finalizarCompra() {
       Products = [];
       renderOrder();
       showAlert('Compra Finalizada', 'exito')
-      contarProductos();
     }
 
   }
 
 }
-/*
-function increment(id) {
-  var input = document.getElementById(`order-cant-input${id}`)
-  var value = parseInt(input.value, 10);
-  input.value = isNaN(value) ? 1 : value + 1;
-  updateTotal(id);
-}
 
-function decrement(id) {
-  var input = document.getElementById(`order-cant-input${id}`)
-  var value = parseInt(input.value, 10);
-  input.value = isNaN(value) ? 1 : value - 1;
-  if (input.value < 1) {
-    input.value = 1;
-  }
-  updateTotal(id)
-}
-
-function updateTotal(id) {
-
-  const cantProd = document.getElementById(`order-cant-input${id}`);
-
-  Products[id].cant = parseInt(cantProd.value);
-  Products[id].total = Products[id].cant * parseInt(Products[id].price);
-
-  //Guardarlo en el local storage
-  localStorage.setItem('order', JSON.stringify(Products));
-  renderizarTabla();
-
-  contarProductos();
-
-}*/
