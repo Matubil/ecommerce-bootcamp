@@ -27,18 +27,19 @@
     &__products-search-container {
         border-radius: 10px;
         border: 1px solid rgb(4, 0, 9);
-        padding: 0.5rem;
         background-color: #4b4b4b;
         width: 90%;
         margin: auto;
         color: $color-text-light;
+    }
 
+    &__products-count{
+        margin: .75rem 0;
     }
 
     &__category {
-        margin: 0.75rem;
+        margin: 1rem;
         padding-bottom: 0.5rem;
-        text-align: center;
         font-weight: 400;
         border-bottom: 1px solid $color-bg-primary;
     }
@@ -51,10 +52,12 @@
 
 .product-search {
     &__input {
-        padding: 0.5rem;
+        padding: 1rem;
         border-radius: 10px;
         height: 25px;
         width: 18rem;
+        font-size: 1rem;
+        font-weight: bold;
     }
 
     &__btn {
@@ -73,6 +76,8 @@
             color: black;
         }
     }
+
+
 }
 
 
@@ -90,7 +95,8 @@
             font-size: 0.9rem;
             font-weight: bold;
             width: 90%;
-            height: 4rem;
+            height: 4.5rem;
+            padding: .5rem 0 5rem 0;
         }
 
         .cards-container {
@@ -130,6 +136,14 @@
 
         &__input {
             width: 80%;
+        }
+    }
+}
+
+@media screen and (min-width: 1600px){
+    .section-cards{
+        &__header{
+            margin-top: 1rem;
         }
     }
 }

@@ -6,3 +6,8 @@
     color:$color-text-light;
 }
 
+@media screen and (min-width: 1600px) {
+    .main{
+        padding: 0 15rem;
+    }
+}

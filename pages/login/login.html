@@ -5,12 +5,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home - Ecommerce</title>
-
+    <title>Ingresar</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
         integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+        integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="/css/main.css">
+
 </head>
 
 <body>
@@ -62,42 +65,29 @@
             </ul>
         </nav>
     </header>
-    <!--TODO: Implementar carousel en 2do modulo-->
 
     <!-- =================MAIN=================  -->
 
     <main class="main">
-        <section class="section-cards">
-            <header class="section-cards__header">
-                <div class="section-cards__title-container">
-                    <h1 class="section-cards__title">
-                        Vikings Technology
-                    </h1>
-                    <p class="section-cards__subtitle">
-                        Juega con valentía y fuerza <span class="palabra-vikingo-eslogan">vikinga </span>con nuestras computadoras 
-                        y productos de alta calidad
-                    </p>
+        <h1 class="title">LOGIN</h1>
+        <div class="login-form">
+            <form class="login-form-container" id="loginForm">
+                <div class="login-form-container__group input-group-form">
+                    <label class="input-group-form__label" for="email">
+                        Email
+                    </label>
+                    <input class="input-group-form__input"  type="email" id="email" name="email" placeholder="example@gmail.com" required>
                 </div>
-                <div class="section-cards__products-search-container">
-                    <div class="product-search">
-                        <label for="" class="product-search__label">
-                            Buscar
-                        </label>
-                        <input type="text" class="product-search__input" id="search-input" onkeyup="searchProduct()">
-                        <button class="product-search__btn">Buscar</button>
-                    </div>
+                <div class="login-form-container__group input-group-form">
+                    <label class="input-group-form__label"  for="">
+                        Contraseña
+                    </label>
+                    <input class="input-group-form__input"  type="password" id="password" name="password" placeholder="Password" required><!--! IMPORTANTE recordar cambiar el type de text a password, y max y min length-->
+                </div>
 
-                    <div class="section-cards__products-count" id="product-count">
-                        Se encontraron X productos
-                    </div>
-                </div>
-            </header>
-            <h1 class="section-cards__category">
-                CATEGORIA: OFERTAS
-            </h1>
-            <div class="cards-container" id="cards-container">
-            </div>
-        </section>
+                <button type="submit" class="login-form-container__btn">Ingresar</button>
+            </form>
+        </div>
     </main>
 
     <!-- =================WSP LOGO=================  -->
@@ -143,11 +133,12 @@
                 VIKINGS TECHNOLOGY
             </h2>
             <p class="footer__copyright">
-                Todos los derechos reservados a Vikings Technology®
+                Todos los derechos reservados a Vikings Technology
             </p>
         </div>
         <div class="footer__column">
             <ul class="footer__contact-container" target="_blank">
+                <!-- para cambiar varias palabras similares que tenemos de clase, le damos a ctrl+d -->
                 <li class="footer__contact-item">
                     <a href="#" class="footer__contact-link">
                         <i class="fa-solid fa-square-phone-flip footer__contact-icon"></i>
@@ -155,7 +146,7 @@
                     </a>
                 </li>
                 <li class="footer__contact-item">
-                    <a href="/pages/contact/contact.html" class="footer__contact-link" target="_blank">
+                    <a href="#" class="footer__contact-link" target="_blank">
                         <i class="fa-solid fa-location-dot footer__contact-icon"></i>
                         Localizacion
                     </a>
@@ -170,11 +161,10 @@
         </div>
     </footer>
 
-    <!-- <script src="/js/admin-products.js"></script> -->
-    <script src="/js/general.js"></script>
+    <script src="/js/alert.js"></script>
+    <script src="/js/login.js"></script>
     <script src="/js/header.js"></script>
-    <script src="/js/general.js"></script>
-    <script src="/js/orders.js"></script>
+
 </body>
 
 </html>

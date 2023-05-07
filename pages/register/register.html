@@ -24,12 +24,18 @@
                 <img class="navbar__logo" src="/assets/images/logos/viking logo cabeza.png" alt="Logo del ecommerce">
             </a>
             <div class="user-navbar">
-                <div class="user-navbar__cart-icon-container">
-                    <i class="fa-solid fa-cart-shopping"></i>
-                </div>
+                <a href="/pages/order-detail/order-detail.html"> 
+                    <div class="user-navbar__cart-icon-container">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                        <div class="user-navbar__cart-badge" id="card-count">0</div>
+                    </div>
+                </a>
                 <div class="user-navbar__user-avatar-container">                
                     <!-- TODO: add avatar of person or item-->
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Default_pfp.svg/100px-Default_pfp.svg.png" class="user-navbar__user-avatar" alt="Imagen de usuario">
+
+                    
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Default_pfp.svg/100px-Default_pfp.svg.png" class="user-navbar__user-avatar" alt="Imagen de usuario">
+                
                 </div>
             </div>
 
@@ -39,7 +45,7 @@
                 <span class="navbar__menu-icon"></span>
             </label>
 
-            <ul class="navbar__nav-links-container">
+            <ul class="navbar__nav-links-container" id="navbar-list">
                 <li class="navbar__nav-item">
                     <a href="/index.html" class="navbar__nav-link">Inicio</a>
                 </li>
@@ -52,9 +58,13 @@
                 <li class="navbar__nav-item">
                     <a href="/pages/register/register.html" class="navbar__nav-link">Registro</a>
                 </li>
+                <li class="navbar__nav-item" id="sign-in">
+                    <a href="/pages/login/login.html" class="navbar__nav-link">Login</a>
+                </li>
             </ul>
         </nav>
     </header>
+
     
     <!-- =================MAIN=================  -->
 
@@ -76,17 +86,17 @@
     
                 <div class="password-container form-container">
                     <label class="password-container__label" for="password1">Contraseña</label>
-                    <input class="password-container__input input" type="password" name="password1" id="password1" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$" required>
+                    <input class="password-container__input input" type="password" name="password1" id="password1"  minlength="8" maxlength="20" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required>
                 </div>
     
                 <div class="reply-password-container form-container">
                     <label class="reply-password-container__label" for="password2">Repetir Contraseña</label>
-                    <input class="reply-password-container__input input" type="password" name="password2" id="password2" required>
+                    <input class="reply-password-container__input input" type="password" name="password2" id="password2"  minlength="8" maxlength="20" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required>
                 </div>
     
                 <div class="age-container form-container">
                     <label class="age-container__label" for="age">Edad</label>
-                    <input class="age-container__input input" type="number" name="age" id="age" min="12" max="110" step="5" required>
+                    <input class="age-container__input input" type="number" name="age" id="age" min="12" max="120" required>
                 </div>
     
                 <div class="born-container form-container">
@@ -351,13 +361,13 @@
     
                 <label class="form-container" for="">Sexo</label>
                 <div class="sex-container form-container">
-                    <input type="radio" class="sex-container__item" name="sex" id="female" required>
+                    <input type="radio" class="sex-container__item" name="sex" id="female"  value="1" required>
                     <label class="sex-container__label" for="female">Femenino</label>
                     
-                    <input type="radio" class="sex-container__item" name="sex" id="male">
+                    <input type="radio" class="sex-container__item" name="sex" id="male" value="2" >
                     <label class="sex-container__label" for="male">Masculino</label>
                     
-                    <input type="radio" class="sex-container__item" name="sex" id="other">
+                    <input type="radio" class="sex-container__item" name="sex" id="other" value="3" >
                     <label class="sex-container__label" for="other">Otro</label>
                 </div>
     
@@ -365,7 +375,7 @@
                     <input class="therms-container__input" type="checkbox" name="checkbox" id="therms" required>
                     <label class="therms-container__label" for="therms">Acepto los términos y condiciones</label>
                 </div>
-                <input class="register__button" value="Enviar" type="submit">
+                <button id="registerSubmit" type="submit" class="register__button">Enviar</button>
             </form>
         </section>
     </main>
@@ -439,6 +449,12 @@
             </ul>
         </div>
     </footer>
+
+    <script src="/js/alert.js"></script>
+    <script src="/js/register.js"></script>
+    <script src="/js/header.js"></script>
+    <script src="/js/get-order.js"></script>   
+
 
 </body>
 </html>

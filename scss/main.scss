@@ -7,12 +7,18 @@
 
 @import "components/card";
 @import "components/wsp-body-logo";
+@import "components/alert-dialog";
 
 @import "layout/header";
 @import "layout/footer";
 @import "layout/main";
 
 @import "pages/about-us";
+@import "pages/admin-product";
+@import "pages/admin-users";
 @import "pages/contact";
 @import "pages/home";
-@import "pages/register"
+@import "pages/login";
+@import "pages/order-detail";
+@import "pages/product-detail";
+@import "pages/register";

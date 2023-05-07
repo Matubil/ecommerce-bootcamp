@@ -117,16 +117,33 @@
     gap: .5rem;
     align-items: center;
     padding: 0 1rem;
+    
     &__user-avatar{
         width: 40px;
     }
     &__cart-icon-container{
         color: $color-text-light;
         font-size: 1.5rem;
+        margin-right: .5rem;
+        position: relative;
+    }
+    &__cart-badge{
+        position: absolute;
+        top: -.5rem;
+        right: -.5rem;
+        height: 1rem;
+        width: 1rem;
+        border-radius: 50%;
+        background-color: red;
+        font-size: .75rem;
+        font-weight: bolder;
+        color: white;
+        text-shadow: 1px 1px $color-bg-secondary;
+        text-align: center;
     }
 }
 
-@media screen and (min-width: 640px) and (max-width: 1024px) {
+@media screen and (min-width: 825px) and (max-width: 1024px) {
     .navbar{
         position: static;
         height: 60px;

@@ -25,13 +25,18 @@
                 <img class="navbar__logo" src="/assets/images/logos/viking logo cabeza.png" alt="Logo del ecommerce">
             </a>
             <div class="user-navbar">
-                <div class="user-navbar__cart-icon-container">
-                    <i class="fa-solid fa-cart-shopping"></i>
-                </div>
-                <div class="user-navbar__user-avatar-container">
+                <a href="/pages/order-detail/order-detail.html"> 
+                    <div class="user-navbar__cart-icon-container">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                        <div class="user-navbar__cart-badge" id="card-count">0</div>
+                    </div>
+                </a>
+                <div class="user-navbar__user-avatar-container">                
                     <!-- TODO: add avatar of person or item-->
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Default_pfp.svg/100px-Default_pfp.svg.png"
-                        class="user-navbar__user-avatar" alt="Imagen de usuario">
+
+                    
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Default_pfp.svg/100px-Default_pfp.svg.png" class="user-navbar__user-avatar" alt="Imagen de usuario">
+                
                 </div>
             </div>
 
@@ -41,7 +46,7 @@
                 <span class="navbar__menu-icon"></span>
             </label>
 
-            <ul class="navbar__nav-links-container">
+            <ul class="navbar__nav-links-container" id="navbar-list">
                 <li class="navbar__nav-item">
                     <a href="/index.html" class="navbar__nav-link">Inicio</a>
                 </li>
@@ -53,6 +58,9 @@
                 </li>
                 <li class="navbar__nav-item">
                     <a href="/pages/register/register.html" class="navbar__nav-link">Registro</a>
+                </li>
+                <li class="navbar__nav-item" id="sign-in">
+                    <a href="/pages/login/login.html" class="navbar__nav-link">Login</a>
                 </li>
             </ul>
         </nav>
@@ -168,6 +176,11 @@
             </ul>
         </div>
     </footer>
+
+    
+    <script src="/js/header.js"></script>
+    <script src="/js/general.js"></script>
+    <script src="/js/orders.js"></script>
 
 </body>
 
