@@ -32,7 +32,7 @@ function renderizarTabla(){
                                     ${producto.description}    
                                 </td>
                                 <td class= "product__price">
-                                    $ ${producto.price}
+                                    $ ${producto.price.toFixed(2)}
                                 </td>
                                 <td class= "product__actions">
                                     <button class="product__action-btn" onclick="deleteProduct(${index})"> 
@@ -78,9 +78,12 @@ function addProduct(evt){
     console.log(newProduct)
 
     if(editIndex >= 0){
+        console.log('entro a editar')
+        console.log(editIndex)
+
         Products[editIndex] = newProduct;
+        console.log(Products[editIndex])
         showAlert(`El producto se edito correctamente`, 'warning')
-        return
     } else{
         Products.push(newProduct)
         showAlert(`El producto se agrego correctamente`, 'success')
@@ -134,6 +137,7 @@ function editProduct(id){
 
     let product = Products[id];
     console.table(product)
+    console.log('estamos dentro de editar')
     const el = productForm.elements;
     el.name.value = product.name
     el.description.value = product.description

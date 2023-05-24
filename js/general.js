@@ -50,7 +50,6 @@ function renderizarCard(listaProducts) {
                             </div>
                             </div>
                         </article>`
-
         cardsContainer.innerHTML += card
     })
 }

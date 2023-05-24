@@ -246,6 +246,8 @@ function logout(){
     localStorage.removeItem('currentUser');
     localStorage.removeItem('order')
     renderHeaderLinks();
+    window.location.replace("/");
+
 }
 
 renderHeaderLinks();

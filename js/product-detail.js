@@ -57,7 +57,7 @@ function renderizarDetail() {
                                 </div>
                             
                                 <div class="product-function-container__btns product-detail-btn">
-                                    <button class="product-detail-btn__functions" onclick="addCart()">Agregar al carrito</button>
+                                    <button class="product-detail-btn__functions" id="agregarCarrito" onclick="addCart()">Agregar al carrito</button>
                                     <button class="product-detail-btn__functions" onclick="boughtProduct()">Comprar ahora</button>
                                 </div>
                             </div>                            
@@ -78,46 +78,52 @@ function renderizarDetail() {
 renderizarDetail()
 
 let input = document.getElementById("quantity-input");
-    let currentValue = parseInt(input.value);
+let currentValue = parseInt(input.value);
 
-    function increaseInput() {
-        input.value = currentValue + 1;
+function increaseInput() {
+    input.value = currentValue + 1;
+    currentValue = parseInt(input.value);
+}
+
+function decreaseInput() {
+    if (currentValue > 1) {
+        input.value = currentValue - 1;
         currentValue = parseInt(input.value);
     }
-
-    function decreaseInput() {
-        if (currentValue > 1) {
-            input.value = currentValue - 1;
-            currentValue = parseInt(input.value);
-        }
-    }
+}
 
 
 function addCart() {
-        const existingCartItems = JSON.parse(sessionStorage.getItem('order')) || [];
-        const updatedProduct = { ...product, quantity: parseInt(document.querySelector('.quantity-product__input').value) };
-        const existingProductIndex = existingCartItems.findIndex(item => item.name === updatedProduct.name);
-        if (existingProductIndex !== -1) {
-            existingCartItems[existingProductIndex].quantity += updatedProduct.quantity;
-        } else {
-            existingCartItems.push(updatedProduct);
-        }
-        sessionStorage.setItem('order', JSON.stringify(existingCartItems));
-    };
+    const existingCartItems = JSON.parse(sessionStorage.getItem('order')) || [];
+    const updatedProduct = { ...product, quantity: parseInt(document.querySelector('.quantity-product__input').value) };
+    const existingProductIndex = existingCartItems.findIndex(item => item.name === updatedProduct.name);
+    if (existingProductIndex !== -1) {
+        existingCartItems[existingProductIndex].quantity += updatedProduct.quantity;
+    } else {
+        existingCartItems.push(updatedProduct);
+    }
+    sessionStorage.setItem('order', JSON.stringify(existingCartItems));
+
+    // Actualizar el contador del carrito
+    const cartCounter = document.getElementById('card-count');
+    let currentCount = parseInt(cartCounter.textContent) || 0;
+    cartCounter.textContent = (currentCount + updatedProduct.quantity).toString();
+}
+
 
 function boughtProduct() {
-        const existingCartItems = JSON.parse(sessionStorage.getItem('order')) || [];
-        const updatedProduct = { ...product, quantity: parseInt(document.querySelector('.quantity-product__input').value) };
-        const existingProductIndex = existingCartItems.findIndex(item => item.name === updatedProduct.name);
-        if (existingProductIndex !== -1) {
-            existingCartItems[existingProductIndex].quantity += updatedProduct.quantity;
-        } else {
-            existingCartItems.push(updatedProduct);
-        }
-        sessionStorage.setItem('order', JSON.stringify(existingCartItems));
+    const existingCartItems = JSON.parse(sessionStorage.getItem('order')) || [];
+    const updatedProduct = { ...product, quantity: parseInt(document.querySelector('.quantity-product__input').value) };
+    const existingProductIndex = existingCartItems.findIndex(item => item.name === updatedProduct.name);
+    if (existingProductIndex !== -1) {
+        existingCartItems[existingProductIndex].quantity += updatedProduct.quantity;
+    } else {
+        existingCartItems.push(updatedProduct);
+    }
+    sessionStorage.setItem('order', JSON.stringify(existingCartItems));
 
 
-        window.location.replace("/pages/order-detail/order-detail.html");
-    };
+    window.location.replace("/pages/order-detail/order-detail.html");
+};
 
 

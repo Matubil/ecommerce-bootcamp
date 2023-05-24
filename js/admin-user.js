@@ -33,10 +33,10 @@ function renderizarTabla(){
                                     ${usuario.role}
                                 </td>
                                 <td class= "product__actions">
-                                    <button class="product__action-btn" onclick="deleteProduct(${index})"> 
+                                    <button class="product__action-btn" onclick="deleteUser(${index})"> 
                                         <i class="fa-solid fa-trash-can"></i>
                                     </button>
-                                    <button class="product__action-btn btn-edit" onclick="editProduct(${index})">
+                                    <button class="product__action-btn btn-edit" onclick="editUser(${index})">
                                         <i class="fa-solid fa-pencil"></i>
                                     </button>
                                 </td>
@@ -73,7 +73,6 @@ function addUser(evt){
     if(editIndex >= 0){
         Users[editIndex] = newUser;
         showAlert(`El usuario se edito correctamente`, 'warning')
-        return
     } else{
         Users.push(newUser)
         showAlert(`El usuario se agrego correctamente`, 'success')
@@ -99,7 +98,7 @@ function addUser(evt){
 
 
 
-function deleteProduct(id){
+function deleteUser(id){
     const userName = Users[id].name;
 
     if (confirm(`¿Está seguro que desea borrar el usuario ${userName}?`)) {
@@ -120,7 +119,7 @@ function deleteProduct(id){
 }  
 
 
-function editProduct(id){    
+function editUser(id){    
 
     submitBtn.classList.add('edit-btn') //le agrega una clase al boton para que tome los estilos del css
     submitBtn.innerText = 'Modificar usuario' //va a cambiar lo que dice el boton
@@ -134,3 +133,30 @@ function editProduct(id){
     
     editIndex = id; //esta declarado arriba de renderizarTabla y se hace para que podamos traernos el id del que estamos editando para mas tarde que se termine de modificar
 }
+
+
+//! PARTE DEL BACKEND
+
+// let users = [] //clase 63 2:10
+// const URL = `http//localhost:8000/api`
+
+// async function getUser(){ 
+//     try {
+
+//         const token = localStorage.getItem('token')
+//         const response  = await axios.get(`${URL}/users?skip=${page}`, {//clase 64 2:37:00
+//             headers: {
+//                 Authorization: token    //le enviamos el token en el header
+//             }
+//         })
+
+//         console.log(response)
+//         users  = response.data.users
+//         users.forEach(usr => document.write(`${usr.fullName}<br>`))
+        
+//     } catch (error) {
+//         console.log(error)
+//     }
+// }
+
+// getUser();
